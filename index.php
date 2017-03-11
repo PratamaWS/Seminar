@@ -1,5 +1,17 @@
 <?php
-require('connection.php');
+	session_start();
+	if (!isset($_SESSION['user'])){
+		header("location:index.php");
+	}
+	if(isset($_SESSION['user'])){
+		if($_SESSION['role'] == "admin"){
+			header("location:homeadmin.php");
+		}
+		if($_SESSION['role'] == "user"){
+			header("location:halaman_user.php");
+		}
+	}
+	require('connection.php');
 ?>
 <!DOCTYPE html>
 <html>

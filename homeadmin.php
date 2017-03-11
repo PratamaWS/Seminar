@@ -1,7 +1,15 @@
 <!DOCTYPE html>
-<?php 
-session_start();
-IF(ISSET($_SESSION['user'])){
+<?php
+  session_start();
+  if (!isset($_SESSION['user'])){
+     echo "<script language=\"javascript\">alert(\"Silahkan Login Terlebih Dahulu\");document.location.href='login.php';</script>";  
+  }
+  if(isset($_SESSION['user'])){
+    if($_SESSION['role'] == "user"){
+      header("location:halaman_user.php");
+    }
+  }
+  require('koneksi.php');
 ?>
 <html>
   <head>
@@ -196,8 +204,3 @@ IF(ISSET($_SESSION['user'])){
     <script src="plugins/bootstrap-notify/bootstrap-notify.min.js"></script>
   </body>
 </html>
-  <?php 
-}else{
-    echo "<script language=\"javascript\">alert(\"Silahkan Login Terlebih Dahulu\");document.location.href='login.php';</script>";  
-}
-?>
