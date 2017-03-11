@@ -27,7 +27,7 @@ if(isset($_POST['register'])){
 			?>
 			<script>
 				alert("Akun berhasil dibuat");
-				window.location.href='halaman_login.php';
+				window.location.href='login.php';
 			</script>
 			<?php
 		}
