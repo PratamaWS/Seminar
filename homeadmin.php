@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php 
 session_start();
-IF(ISSET($_SESSION['username'])){
+IF(ISSET($_SESSION['user'])){
 ?>
 <html>
   <head>

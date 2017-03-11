@@ -15,7 +15,6 @@ $(document).ready( function ()
           "type": "POST"
         },
         "columns": [
-        { "data": "urutan" },
         { "data": "nama_aut" },
         { "data": "judul_abs" },
         { "data": "status_lolos"},

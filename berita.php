@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php 
 session_start();
-IF(ISSET($_SESSION['username'])){
+IF(ISSET($_SESSION['user'])){
 ?>
 <html>
   <head>
@@ -43,7 +43,7 @@ IF(ISSET($_SESSION['username'])){
                         <li class="dropdown user user-menu">
                             <a class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="fa fa-user"></i>
-                                <span><?=$_SESSION['nama']?></span>
+                                <span><?=$_SESSION['username']?></span>
                             </a>
                                 </li>
                                 <li class="dropdown user user-menu">
