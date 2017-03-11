@@ -18,7 +18,7 @@ if(isset($_POST['login'])){
 		$result = mysqli_fetch_assoc($resultsql);
 		if($result['user_status'] == 1){			
 			$_SESSION['role'] = "admin";
-			header("location:halaman_admin.php");
+			header("location:homeadmin.php");
 		} else if($result['user_status'] == 2){			
 			$_SESSION['role'] = "user";
 			header("location:halaman_user.php");

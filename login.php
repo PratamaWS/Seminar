@@ -22,7 +22,7 @@
   <body class="hold-transition login-page">
     <div class="login-box">
       <div class="login-logo">
-        <a href="login.php"><b>LOGIN ADMIN</b></a>
+        <a href="login.php"><b>LOGIN</b></a>
       </br>
       </br>
       </div><!-- /.login-logo -->
@@ -57,14 +57,23 @@ IF(ISSET($_POST['login'])){
   $username = $_POST['username'];
   $password = $_POST['password'];
   
-  $cek = mysql_num_rows(mysql_query("SELECT * FROM admin WHERE username='$username' AND password='$password'"));
-  $data = mysql_fetch_array(mysql_query("SELECT * FROM admin WHERE username='$username' AND password='$password'"));
+  $cek = mysql_num_rows(mysql_query("SELECT * FROM user WHERE user_name='$username' AND user_password='$password'"));
+  $data = mysql_fetch_array(mysql_query("SELECT * FROM user WHERE user_name='$username' AND user_password='$password'"));
   IF($cek > 0)
   {
     session_start();
-    $_SESSION['username'] = $data['username'];
-    $_SESSION['nama'] = $data['nama'];
-    echo "<script language=\"javascript\">alert(\"Selamat Datang\");document.location.href='homeadmin.php';</script>";
+    $user= $data['user_name'];
+    $_SESSION['user'] = $user;
+    $sql = "SELECT user_status FROM user WHERE user_name = '$user' ";
+    $resultsql = mysql_query( $sql);
+    $result = mysql_fetch_assoc($resultsql);
+    if($result['user_status'] == 1){      
+      $_SESSION['role'] = "admin";
+      echo "<script language=\"javascript\">alert(\"Selamat Datang\");document.location.href='homeadmin.php';</script>";
+    } else if($result['user_status'] == 2){     
+      $_SESSION['role'] = "user";
+      header("location:halaman_user.php");
+    }
   }else{
     echo "<script language=\"javascript\">alert(\"Password atau Username Salah !!!\");document.location.href='login.php';</script>";
   }
