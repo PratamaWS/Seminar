@@ -51,7 +51,7 @@
                         <li class="dropdown user user-menu">
                             <a class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="fa fa-user"></i>
-                                <span><?=$_SESSION['nama']?></span>
+                                <span><?=$_SESSION['user']?></span>
                             </a>
                                 </li>
                                 <li class="dropdown user user-menu">
@@ -72,7 +72,7 @@
             </div>
             <div class="pull-left info">
             </br>
-              <p>Admin, <?=$_SESSION['nama']?></p>
+              <p>Admin, <?=$_SESSION['user']?></p>
             </div>
           </div>
         </br>
