@@ -82,7 +82,7 @@ IF(ISSET($_SESSION['user'])){
               </a>
             </li>
             <li>
-              <a href="pages/widgets.html">
+              <a href="pembayaran.php">
                 <i class="fa fa-th"></i> <span>Kelola Pembayaran</span>
               </a>
             </li>
@@ -120,9 +120,9 @@ IF(ISSET($_SESSION['user'])){
                         <th style="width:20%">Nama</th>
                         <th style="width:20%">Judul</th>
                          <th style="width:15%">Status Lolos</th>
-                        <th style="width:15%">Status Bayar</th>
+ <!--                        <th style="width:15%">Status Bayar</th> -->
                          <th style="width:8%">File</th>
-                        <th style="width:8%">Lolos</th>
+                        <th style="width:8%">Loloskan </th>
                         </th>
                       </tr>
                     </thead>
@@ -135,7 +135,7 @@ IF(ISSET($_SESSION['user'])){
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
       <footer class="main-footer">
-        <strong>Copyright &copy; 2017 <a href="http://almsaeedstudio.com">Seminar</a>.</strong> All rights reserved.
+        <strong>Copyright &copy; 2017 <a href="">Seminar</a>.</strong> All rights reserved.
       </footer>
     </div><!-- ./wrapper -->
     <script src="plugins/jQuery/jQuery-2.1.4.min.js"></script>

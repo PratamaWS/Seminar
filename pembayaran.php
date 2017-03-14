@@ -7,7 +7,7 @@ IF(ISSET($_SESSION['user'])){
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Berita</title>
+    <title>Kelola Pembayaran</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
@@ -75,19 +75,19 @@ IF(ISSET($_SESSION['user'])){
                 <i class="fa fa-dashboard"></i> <span>Dashboard</span>
               </a>
             </li>
-            <li class="treeview">
+            <li>
               <a href="abstrak.php">
                 <i class="fa fa-files-o"></i>
                 <span>Kelola Abstrak</span>
               </a>
             </li>
-            <li class="treeview ">
+            <li class="active treeview">
               <a href="pembayaran.php">
                 <i class="fa fa-th"></i> <span>Kelola Pembayaran</span>
               </a>
             </li>
-            <li class="active treeview">
-                          <a href="berita.php">
+            <li class="treeview">
+                    <a href="berita.php">
                 <i class="fa fa-bullhorn"></i>
                 <span>Berita</span>
               </a>
@@ -99,13 +99,12 @@ IF(ISSET($_SESSION['user'])){
       <div class="content-wrapper">
         <section class="content-header">
           <h1>
-            Kelola Berita
+            Data Pembayaran
           </h1>
             </br>
           <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li><a href="#">Berita</a></li>
-            <li class="active">Kelola berita</li>
+            <li><a href="index.php"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Kelola Pembayaran</li>
           </ol>
         </section>
         <!-- Main content -->
@@ -113,70 +112,30 @@ IF(ISSET($_SESSION['user'])){
           <div class="row">
             <div class="col-xs-12">
               <div class="box">
-                <div class="box-header">
-                   <button type="submit" class="btn btn-primary " id="btnadd" name="btnadd"><i class="fa fa-plus"></i> Tambah Data</button>
-                </div><!-- /.box-header -->
               </br>
                 <div class="box-body">
-                  <table id="table_brt" class="table table-bordered table-striped">
+                  <table id="table_bayar" class="table table-bordered table-striped">
                     <thead>
                       <tr>
-                        <th style="width:5%" class="sorting">No</th>
-                        <th style="width:25%">Judul</th>
-                        <th style="width:40%">Isi</th>
-                        <th style="width:15%">Tanggal Dibuat</th>
-                        <th></th>
+                        <th style="width:20%">Nama</th>
+                        <th style="width:20%">Judul</th>
+                         <th style="width:15%">Status Bayar</th>
+ <!--                        <th style="width:15%">Status Bayar</th> -->
+                         <th style="width:8%">File</th>
+                        <th style="width:8%">Bayar </th>
+                        </th>
                       </tr>
                     </thead>
                   </table>
+
                 </div><!-- /.box-body -->
               </div><!-- /.box -->
             </div><!-- /.col -->
           </div><!-- /.row -->
-              <div id="modalbrt" class="modal">
-                <div class="modal-dialog modal-md">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal">×</button>
-                      <h4 class="modal-title">Form Data Berita</h4>
-                    </div>
-                    <!--modal header-->
-                    <div class="modal-body">
-                      <div class="pad" id="infopanel"></div>
-                      <div class="form-horizontal">
-                        <div class="form-group"> 
-                          <label class="col-sm-2  control-label">Judul Berita</label>
-                          <div class="col-sm-9">
-                              <input type="text" class="form-control" id="txtjudul" placeholder="Judul">
-                              <input type="hidden" id="crudmethod" value="N"> 
-                              <input type="hidden" id="txtid" value="0">
-                            </div>
-                        </div>
-                        <div class="form-group"> 
-                          <label class="col-sm-2  control-label" >Isi Berita</label>
-                          <div class="col-sm-9">
-                              <textarea type="text" class="form-control" placeholder="Isi berita" id="txtisi"></textarea>
-                            </div>
-                        </div>
-                        </br>
-                        <div class="form-group"> 
-                          <label class="col-sm-2  control-label"></label>
-                          <div class="col-sm-9">
-                            <button type="submit" class="btn btn-primary " id="btnsave"><i class="fa fa-save"></i> Save</button></div>
-                        </div>
-                      </div>
-                      <!--modal footer-->
-                    </div>
-                    <!--modal-content-->
-                  </div>
-                  <!--modal-dialog modal-lg-->
-                </div>
-                <!--form-kantor-modal-->
-              </div>
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
       <footer class="main-footer">
-        <strong>Copyright &copy; 2017 <a href="http://almsaeedstudio.com">Seminar</a>.</strong> All rights reserved.
+        <strong>Copyright &copy; 2017 <a href="">Seminar</a>.</strong> All rights reserved.
       </footer>
     </div><!-- ./wrapper -->
     <script src="plugins/jQuery/jQuery-2.1.4.min.js"></script>
@@ -193,7 +152,7 @@ IF(ISSET($_SESSION['user'])){
 
     <script src="plugins/sweetalert/sweetalert.min.js"></script>
 
-    <script src="berita.js"></script>
+    <script src="pembayaran.js"></script>
 
     <script src="plugins/bootstrap-notify/bootstrap-notify.min.js"></script>
   </body>
