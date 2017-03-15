@@ -1,21 +1,13 @@
 <!DOCTYPE html>
-<?php
+<?php 
 session_start();
-if (!isset($_SESSION['user'])){
- echo "<script language=\"javascript\">alert(\"Silahkan Login Terlebih Dahulu\");document.location.href='login.php';</script>";  
-}
-if(isset($_SESSION['user'])){
-  if($_SESSION['role'] == "user"){
-    header("location:halaman_user.php");
-  }
-}
-require('koneksi.php');
+if(ISSET($_SESSION['user'])){
 ?>
 <html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Berita</title>
+  <title>Kategori</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.5 -->
@@ -78,7 +70,7 @@ require('koneksi.php');
   </br>
   <ul class="sidebar-menu">
     <li class="header">MENU</li>
-    <li class="active treeview">
+    <li class="treeview">
       <a href="index.php">
         <i class="fa fa-dashboard"></i> <span>Dashboard</span>
       </a>
@@ -89,12 +81,12 @@ require('koneksi.php');
         <span>Kelola Abstrak</span>
       </a>
     </li>
-    <li class="treeview">
+    <li class="treeview ">
       <a href="pembayaran.php">
         <i class="fa fa-th"></i> <span>Kelola Pembayaran</span>
       </a>
     </li>
-    <li class="treeview">
+    <li class="active treeview">
       <a href="kategori.php">
         <i class="fa fa-th"></i> <span>Kelola Kategori</span>
       </a>
@@ -112,13 +104,12 @@ require('koneksi.php');
 <div class="content-wrapper">
   <section class="content-header">
     <h1>
-      Kelola Berita
+      Kelola Kategori
     </h1>
   </br>
   <ol class="breadcrumb">
     <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-    <li><a href="#">Berita</a></li>
-    <li class="active">Kelola berita</li>
+    <li class="active">Kelola Kategori</li>
   </ol>
 </section>
 <!-- Main content -->
@@ -127,7 +118,7 @@ require('koneksi.php');
     <div class="col-xs-12">
       <div class="box">
         <div class="box-header">
-         <button type="submit" class="btn btn-primary " id="btnadd" name="btnadd"><i class="fa fa-plus"></i> Tambah Data</button>
+         <button type="submit" class="btn btn-primary " id="btnadd" name="btnadd"><i class="fa fa-plus"></i> Tambah Kategori</button>
        </div><!-- /.box-header -->
      </br>
      <div class="box-body">
@@ -158,7 +149,7 @@ require('koneksi.php');
         <div class="pad" id="infopanel"></div>
         <div class="form-horizontal">
           <div class="form-group"> 
-            <label class="col-sm-2  control-label">Judul</label>
+            <label class="col-sm-2  control-label">Judul Berita</label>
             <div class="col-sm-9">
               <input type="text" class="form-control" id="txtjudul" placeholder="Judul">
               <input type="hidden" id="crudmethod" value="N"> 
@@ -166,7 +157,7 @@ require('koneksi.php');
             </div>
           </div>
           <div class="form-group"> 
-            <label class="col-sm-2  control-label" >Isi</label>
+            <label class="col-sm-2  control-label" >Isi Berita</label>
             <div class="col-sm-9">
               <textarea type="text" class="form-control" placeholder="Isi berita" id="txtisi"></textarea>
             </div>
@@ -199,6 +190,8 @@ require('koneksi.php');
 <script src="plugins/datatables/jquery.dataTables.min.js"></script>
 
 <script src="plugins/datatables/dataTables.bootstrap.min.js"></script>
+<!-- FastClick -->
+<script src="plugins/fastclick/fastclick.min.js"></script>
 <!-- AdminLTE App -->
 <script src="dist/js/app.min.js"></script>
 
@@ -209,3 +202,8 @@ require('koneksi.php');
 <script src="plugins/bootstrap-notify/bootstrap-notify.min.js"></script>
 </body>
 </html>
+<?php 
+}else{
+echo "<script language=\"javascript\">alert(\"Silahkan Login Terlebih Dahulu\");document.location.href='login.php';</script>";  
+}
+?>
