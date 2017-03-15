@@ -1,15 +1,12 @@
 <?php
 include "koneksi.php";
 
-$berita_id=$_POST['berita_id'];
-$query=mysql_query("select * from berita where berita_id=$berita_id");
+$kategori_id=$_POST['kategori_id'];
+$query=mysql_query("select * from kategori where kategori_id=$kategori_id");
 $array = array();
 while($data = mysql_fetch_array($query)){
-	$array['berita_id']= $data['berita_id'];
-	$array['berita_judul']= $data['berita_judul'];
-	$array['berita_isi']= $data['berita_isi'];
-	$array['berita_tanggal']= $data['berita_tanggal'];
-
+	$array['kategori_id']= $data['kategori_id'];
+	$array['kategori_nama']= $data['kategori_nama'];
 }
 echo json_encode($array);
 

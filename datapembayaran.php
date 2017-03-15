@@ -1,7 +1,7 @@
 <?php
 include "koneksi.php";
 $query=mysql_query("SELECT/* @rownum := @rownum + 1 AS urutan, t.*/ id_data, nama_aut, judul_abs, file_abs, status_lolos, status_bayar
-	FROM datauser /*t*/ WHERE status_bayar = 'Belum'"); 
+	FROM datauser /*t*/ WHERE status_bayar = 'Belum' AND status_lolos = 'Lolos'"); 
 /*t, (SELECT @rownum := 0) r*/
 $data = array();
 while($r = mysql_fetch_assoc($query)) {

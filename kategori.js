@@ -1,6 +1,6 @@
 $(document).ready( function () 
     {
-      $('#table_brt').DataTable({
+      $('#table_kategori').DataTable({
         "paging": true,
         "lengthChange": true,
         "searching": true,
@@ -10,14 +10,12 @@ $(document).ready( function ()
         "autoWidth": false,
         "pageLength": 10,
         "ajax": {
-          "url": "data.php",
+          "url": "data_kategori.php",
           "type": "POST"
         },
         "columns": [
         { "data": "urutan" },
-        { "data": "berita_judul" },
-        { "data": "berita_isi" },
-        { "data": "berita_tanggal" },
+        { "data": "kategori_nama" },
         { "data": "button" },
         ]
       });
@@ -25,7 +23,7 @@ $(document).ready( function ()
 
     });
     $(document).on("click","#btnadd",function(){
-        $("#modalbrt").modal("show");
+        $("#modalkategori").modal("show");
         $("#txtjudul").focus();
         $("#txtjudul").val("");
         $("#txtisi").val("");
@@ -34,11 +32,11 @@ $(document).ready( function ()
         $("#txtid").val("0");
     });
      $(document).on( "click",".btnhapus", function() {
-      var berita_id = $(this).attr("berita_id");
-      var berita_judul = $(this).attr("berita_judul");
+      var kategori_id = $(this).attr("kategori_id");
+      var kategori_nama = $(this).attr("kategori_nama");
       swal({   
         title: "Delete Data?",   
-        text: "Delete Data : "+berita_judul+" ?",   
+        text: "Delete Data : "+kategori_nama+" ?",   
         type: "warning",   
         showCancelButton: true,   
         confirmButtonColor: "#DD6B55",   
@@ -46,11 +44,11 @@ $(document).ready( function ()
         closeOnConfirm: true }, 
         function(){   
           var value = {
-            berita_id: berita_id
+            kategori_id: kategori_id
           };
           $.ajax(
           {
-            url : "delete_berita.php",
+            url : "delete_kategori.php",
             type: "POST",
             data : value,
             success: function(data, textStatus, jqXHR)
@@ -58,7 +56,7 @@ $(document).ready( function ()
               var data = jQuery.parseJSON(data);
               if(data.result ==1){
                 $.notify('Successfull delete data');
-                var table = $('#table_brt').DataTable(); 
+                var table = $('#table_kategori').DataTable(); 
                 table.ajax.reload( null, false );
               }else{
                 swal("Error","Can't delete data, error : "+data.error,"error");
@@ -73,26 +71,22 @@ $(document).ready( function ()
         });
     });
     $(document).on("click","#btnsave",function(){
-      var berita_id = $("#txtid").val();
-      var berita_judul = $("#txtjudul").val();
-      var berita_isi = $("#txtisi").val();
-      var berita_tanggal = $("#txttgl").val();
+      var kategori_id = $("#txtid").val();
+      var kategori_nama = $("#txtnama").val();
       var crud=$("#crudmethod").val();
-      if(berita_judul == '' || berita_judul == null ){
-        swal("Warning","Isi judul berita","warning");
-        $("#txtjudul").focus();
+      if(kategori_nama == '' || kategori_nama == null ){
+        swal("Warning","Isi nama kategori!","warning");
+        $("#txtnama").focus();
         return;
       }
       var value = {
-        berita_id: berita_id,
-        berita_judul: berita_judul,
-        berita_isi:berita_isi,
-        berita_tanggal:berita_tanggal,
+        kategori_id: kategori_id,
+        kategori_nama: kategori_nama,
         crud:crud
       };
       $.ajax(
       {
-        url : "save_berita.php",
+        url : "save_kategori.php",
         type: "POST",
         data : value,
         success: function(data, textStatus, jqXHR)
@@ -100,27 +94,25 @@ $(document).ready( function ()
           var data = jQuery.parseJSON(data);
           if(data.crud == 'N'){
             if(data.result == 1){
-              $.notify('Sukses menyimpan data');
-              var table = $('#table_brt').DataTable(); 
+              $.notify('Sukses menambahkan data');
+              var table = $('#table_kategori').DataTable(); 
               table.ajax.reload( null, false );
-              $("#txtjudul").focus();
-              $("#txtjudul").val("");
-              $("#txtisi").val("");
-              $("#txttgl").val("");
+              $("#txtnama").focus();
+              $("#txtnama").val("");
               $("#crudmethod").val("N");
               $("#txtid").val("0");
-              $("#txtjudul").focus();
+              $("#txtnama").focus();
             }else{
-              swal("Error","Tidak bisa menyimpan berita, error : "+data.error,"error");
+              swal("Error","Tidak bisa menambahkan kategori, error : "+data.error,"error");
             }
           }else if(data.crud == 'E'){
             if(data.result == 1){
-              $.notify('Successfull update data');
-              var table = $('#table_brt').DataTable(); 
+              $.notify('Berhasil update kategori');
+              var table = $('#table_kategori').DataTable(); 
               table.ajax.reload( null, false );
               $("#txtname").focus();
             }else{
-             swal("Error","Tidak bisa update berita, : "+data.error,"error");
+             swal("Error","Tidak bisa update kategori, : "+data.error,"error");
             }
           }else{
             swal("Error","invalid order","error");
@@ -133,25 +125,23 @@ $(document).ready( function ()
       });
     });
     $(document).on("click",".btnedit",function(){
-      var berita_id=$(this).attr("berita_id");
+      var kategori_id=$(this).attr("kategori_id");
       var value = {
-        berita_id: berita_id
+        kategori_id: kategori_id
       };
       $.ajax(
       {
-        url : "get_berita.php",
+        url : "get_kategori.php",
         type: "POST",
         data : value,
         success: function(data, textStatus, jqXHR)
         {
           var data = jQuery.parseJSON(data);
           $("#crudmethod").val("E");
-          $("#txtid").val(data.berita_id);
-          $("#txtjudul").val(data.berita_judul);
-          $("#txtisi").val(data.berita_isi);
-          $("#txttgl").val(data.berita_tanggal);
+          $("#txtid").val(data.kategori_id);
+          $("#txtnama").val(data.kategori_nama);
 
-          $("#modalbrt").modal('show');
+          $("#modalkategori").modal('show');
           $("#txtname").focus();
         },
         error: function(jqXHR, textStatus, errorThrown)

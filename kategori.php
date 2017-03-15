@@ -83,12 +83,12 @@ if(ISSET($_SESSION['user'])){
     </li>
     <li class="treeview ">
       <a href="pembayaran.php">
-        <i class="fa fa-th"></i> <span>Kelola Pembayaran</span>
+        <i class="fa fa-money"></i> <span>Kelola Pembayaran</span>
       </a>
     </li>
     <li class="active treeview">
       <a href="kategori.php">
-        <i class="fa fa-th"></i> <span>Kelola Kategori</span>
+        <i class="fa fa-list"></i> <span>Kelola Kategori</span>
       </a>
     </li>
     <li class="treeview">
@@ -122,14 +122,15 @@ if(ISSET($_SESSION['user'])){
        </div><!-- /.box-header -->
      </br>
      <div class="box-body">
-      <table id="table_brt" class="table table-bordered table-striped">
+      <table id="table_kategori" class="table table-bordered table-striped">
         <thead>
           <tr>
             <th style="width:5%" class="sorting">No</th>
-            <th style="width:25%">Judul</th>
-            <th style="width:40%">Isi</th>
-            <th style="width:15%">Tanggal Dibuat</th>
-            <th></th>
+            <th style="width:25%">Kategori</th>
+            <th style="width:5%">Edit / Hapus</th>
+            <!-- <th style="width:40%">Isi</th>
+            <th style="width:15%">Tanggal Dibuat</th> -->
+           <!--  <th></th> -->
           </tr>
         </thead>
       </table>
@@ -137,29 +138,23 @@ if(ISSET($_SESSION['user'])){
   </div><!-- /.box -->
 </div><!-- /.col -->
 </div><!-- /.row -->
-<div id="modalbrt" class="modal">
+<div id="modalkategori" class="modal">
   <div class="modal-dialog modal-md">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">×</button>
-        <h4 class="modal-title">Form Data Berita</h4>
+        <h4 class="modal-title">Form Data Kategori</h4>
       </div>
       <!--modal header-->
       <div class="modal-body">
         <div class="pad" id="infopanel"></div>
         <div class="form-horizontal">
           <div class="form-group"> 
-            <label class="col-sm-2  control-label">Judul Berita</label>
+            <label class="col-sm-2  control-label">Nama</label>
             <div class="col-sm-9">
-              <input type="text" class="form-control" id="txtjudul" placeholder="Judul">
+              <input type="text" class="form-control" id="txtnama" placeholder="nama kategori">
               <input type="hidden" id="crudmethod" value="N"> 
               <input type="hidden" id="txtid" value="0">
-            </div>
-          </div>
-          <div class="form-group"> 
-            <label class="col-sm-2  control-label" >Isi Berita</label>
-            <div class="col-sm-9">
-              <textarea type="text" class="form-control" placeholder="Isi berita" id="txtisi"></textarea>
             </div>
           </div>
         </br>
@@ -180,7 +175,7 @@ if(ISSET($_SESSION['user'])){
 </section><!-- /.content -->
 </div><!-- /.content-wrapper -->
 <footer class="main-footer">
-  <strong>Copyright &copy; 2017 <a href="http://almsaeedstudio.com">Seminar</a>.</strong> All rights reserved.
+  <strong>Copyright &copy; 2017 <a href="">Seminar</a>.</strong> All rights reserved.
 </footer>
 </div><!-- ./wrapper -->
 <script src="plugins/jQuery/jQuery-2.1.4.min.js"></script>
@@ -197,7 +192,7 @@ if(ISSET($_SESSION['user'])){
 
 <script src="plugins/sweetalert/sweetalert.min.js"></script>
 
-<script src="berita.js"></script>
+<script src="kategori.js"></script>
 
 <script src="plugins/bootstrap-notify/bootstrap-notify.min.js"></script>
 </body>
