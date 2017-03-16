@@ -91,12 +91,12 @@ require('koneksi.php');
     </li>
     <li class="treeview">
       <a href="pembayaran.php">
-        <i class="fa fa-money"></i> <span>Kelola Pembayaran</span>
+        <i class="fa fa-th"></i> <span>Kelola Pembayaran</span>
       </a>
     </li>
     <li class="treeview">
       <a href="kategori.php">
-        <i class="fa fa-list"></i> <span>Kelola Kategori</span>
+        <i class="fa fa-th"></i> <span>Kelola Kategori</span>
       </a>
     </li>
     <li class="treeview">
@@ -188,9 +188,11 @@ require('koneksi.php');
 </div>
 </section><!-- /.content -->
 </div><!-- /.content-wrapper -->
-<footer class="main-footer">
-  <strong>Copyright &copy; 2017 <a href="http://almsaeedstudio.com">Seminar</a>.</strong> All rights reserved.
-</footer>
+       <footer class="main-footer">
+        <div class="container tengah">
+          <strong>Copyright © 2017 <a href="index.php">Seminar Nasional Pendidikan Bahasa Indonesia</a></strong> Universitas Muhammadiyah Purworejo
+        </div><!-- /.container -->
+      </footer>
 </div><!-- ./wrapper -->
 <script src="plugins/jQuery/jQuery-2.1.4.min.js"></script>
 <!-- Bootstrap 3.3.5 -->
