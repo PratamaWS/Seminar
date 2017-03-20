@@ -111,7 +111,7 @@
                   <p><?=substr($row['berita_isi'],0,300);?></p>
                   <!-- Attachment -->
                   <div class="attachment-block clearfix">
-                    <img class="attachment-img" src="<?=$hasil_data['gambar'];?>" alt="image">
+                    <!-- <img class="attachment-img" src="<?=$hasil_data['gambar'];?>" alt="image"> -->
                     <div class="attachment-pushed">
                     </div><!-- /.attachment-pushed -->
                   </div><!-- /.attachment-block -->
