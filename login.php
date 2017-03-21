@@ -97,13 +97,18 @@ require('connection.php');
                           </span> -->
                 <input type="hidden" name="token" value="MyFormPage">
                 <img id="captcha" src="securimage/securimage_show.php" alt="chaptcha image"/>
-                <br/>
-                <label>
-                  Enter Image:
-                </label>
+                <br/>        
+              </div>
+            </div>
+            <label>
+              Enter Image:
+            </label>
+            <div class="row">
+              <div class="col-xs-12 col-md-6">
                 <input class="form-control" type="text" name="captcha_code" size="10" maxlength="6"/>
-                <br />
-                <a class="btn btn-success" href="#" onclick="document.getElementById('captcha').src='securimage/securimage_show.php?'+ Math.random(); return false">
+              </div>
+              <div class="col-xs-12 col-md-6">
+                <a href="#" onclick="document.getElementById('captcha').src='securimage/securimage_show.php?'+ Math.random(); return false">
                   New captcha
                 </a>
               </div>
