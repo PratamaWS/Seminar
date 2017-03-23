@@ -2,8 +2,8 @@
 <?php 
 session_start();
 IF(ISSET($_SESSION['user'])){
-?>
-<html>
+  ?>
+  <html>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,10 +12,8 @@ IF(ISSET($_SESSION['user'])){
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    <!-- Font Awesome -->
+    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- DataTables -->
     <link rel="stylesheet" href="plugins/datatables/dataTables.bootstrap.css">
     <!-- Theme style -->
@@ -23,12 +21,12 @@ IF(ISSET($_SESSION['user'])){
 
     <link rel="stylesheet" href="dist/css/skin-blue-light.min.css">
 
-     <!-- SweetAlert  style -->
+    <!-- SweetAlert  style -->
     <link rel="stylesheet" href="plugins/sweetalert/sweetalert.css">
   </head>
   <body class="skin-blue-light fixed sidebar-mini ">
     <div class="wrapper">
-    <header class="main-header">
+      <header class="main-header">
         <!-- Logo -->
         <a href="index.php" class="logo">
           <span class="logo-lg"><b>Seminar Nasional</b></span>
@@ -40,161 +38,196 @@ IF(ISSET($_SESSION['user'])){
           </a>
           <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
-                        <li class="dropdown user user-menu">
-                            <a class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-user"></i>
-                               <span><?=$_SESSION['user']?></span> 
-                            </a>
-                                </li>
-                                <li class="dropdown user user-menu">
-                                <a href="logout.php?keluar"><i class="fa fa-sign-out"></i> <strong>Logout</strong></a>
-                                </li>
-                            </ul>
-                      </div>
-              </nav>
+              <li class="dropdown user user-menu">
+                <a class="dropdown-toggle" data-toggle="dropdown">
+                  <i class="fa fa-user"></i>
+                  <span><?=$_SESSION['user']?></span> 
+                </a>
+              </li>
+              <li class="dropdown user user-menu">
+                <a href="logout.php?keluar"><i class="fa fa-sign-out"></i> <strong>Logout</strong></a>
+              </li>
+            </ul>
+          </div>
+        </nav>
       </header>
-           <aside class="main-sidebar">
+      <aside class="main-sidebar">
         <!-- sidebar: style can be found in sidebar.less -->
         <section class="sidebar">
           <!-- Sidebar user panel -->
         </br>
-          <div class="user-panel">
-            <div class="pull-left image">
-              <img src="dist/img/logo.png" class="img-circle" alt="User Image">
+        <div class="user-panel">
+          <div class="pull-left image">
+            <img src="dist/img/logo.png" class="img-circle" alt="User Image">
+          </div>
+          <div class="pull-left info">
+          </br>
+          <p>Welcome, <?=$_SESSION['user']?></p>
+        </div>
+      </div>
+    </br>
+    <ul class="sidebar-menu">
+      <li class="header">MENU</li>
+      <li class="active treeview">
+        <a href="homeadmin.php">
+          <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+        </a>
+      </li>
+      <li class="treeview">
+        <a href="abstrak.php">
+          <i class="fa fa-files-o"></i>
+          <span>Kelola Abstrak</span>
+        </a>
+      </li>
+      <li>
+        <a href="pages/widgets.html">
+          <i class="fa fa-th"></i> <span>Kelola Pembayaran</span>
+        </a>
+      </li>
+      <li class="treeview">
+        <a href="berita.php">
+          <i class="fa fa-bullhorn"></i>
+          <span>Kelola Makalah</span>
+        </a>
+      </li>
+    </ul>
+  </section>
+</aside>
+
+<div class="content-wrapper">
+  <section class="content-header">
+    <h1>
+      Kelola Abstrak
+    </h1>
+  </br>
+  <ol class="breadcrumb">
+    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+    <li class="active">Kelola Abstrak</li>
+  </ol>
+</section>
+<!-- Main content -->
+<section class="content">
+  <div class="row">
+   <div class="col-xs-2">
+   </div>
+   <div class="col-xs-8">
+     <div class="box box-primary">
+      <div class="box-header with-border">
+        <h3 class="box-title">Form Data Abstrak</h3>
+      </div><!-- /.box-header -->
+      <!-- form start -->
+      <form role="form" action = "upload.php" method = "post" enctype="multipart/form-data">
+
+        <div class="box-body">
+          <div class="form-group">
+            <label >Judul</label>
+            <input type="text" class="form-control" name="judul_abs" required placeholder="Judul">
+          </div>
+          <div class="form-group">
+            <label >Abstrak</label>
+            <input type="file" name="berkas" required >
+            <p class="help-block">*maksimal ukuran abstrak 500Kb</p>
+          </div>
+          <div class="form-group">
+            <label >Keyword</label>
+            <input type="text" class="form-control" name="keyword" required  placeholder="Keyword">
+          </div>
+          <div class="form-group">
+           <label>Kategori  </label>
+           <select  class="form-control" name="kategori">  
+            <option value="">Silahkan Pilih</option>  
+            <option value="In_tek">Inovasi Teknologi</option>  
+            <option value="In_ppk">Inovasi Pembelajaran Pendidikan Kejuruan</option>
+            <option value="In_ev">Inovasi Evaluasi</option>    
+          </select>  
+        </div> 
+
+        <div class="form-group">
+          <label>Author 1<input type="text" class="form-control"  name="author1" required><input type="radio" name="author1abs" value="hadir" required>Hadir<input type="radio" name="author1abs" value="Tidak" required>Tidak</label>
+        </div> 
+        <div class="form-group">  
+          <label>Author 2<input type="text" class="form-control" name="author2"><input type="radio" name="author2abs" value="hadir">Hadir<input type="radio" name="author2abs" value="Tidak">Tidak</label>
+        </div> 
+        <div class="form-group">
+          <label>Author 3<input type="text" class="form-control" name="author3"><input type="radio" name="author3abs" value="hadir">Hadir<input type="radio" name="author3abs" value="Tidak">Tidak</label>      
+        </div>  
+
+        <div class="form-group">
+          <label>Author 4<input type="text" class="form-control" name="author4"><input type="radio" name="author4abs" value="hadir">Hadir<input type="radio" name="author4abs" value="Tidak">Tidak</label>
+        </div>
+        <div class="form-group">
+          <label>Author 5<input type="text"  class="form-control" name="author5"><input type="radio" name="author5abs" value="hadir">Hadir<input type="radio" name="author5abs" value="Tidak">Tidak</label>
+        </div>
+
+        <div class="box-footer">
+          <button type="submit" name="upload" class="btn btn-primary btn-flat">Submit</button>
+        </div>
+      </form>
+    </div> 
+  </div><!-- /.box -->
+</div><!-- /.col -->
+</div><!-- /.row -->
+<div id="modalbrt" class="modal">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">×</button>
+        <h4 class="modal-title">Form Data Berita</h4>
+      </div>
+      <!--modal header-->
+      <div class="modal-body">
+        <div class="pad" id="infopanel"></div>
+        <div class="form-horizontal">
+          <div class="form-group"> 
+            <label class="col-sm-2  control-label">Judul</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="txtjudul" placeholder="Judul">
+              <input type="hidden" id="crudmethod" value="N"> 
+              <input type="hidden" id="txtid" value="0">
             </div>
-            <div class="pull-left info">
-            </br>
-              <p>Welcome, <?=$_SESSION['user']?></p>
+          </div>
+          <div class="form-group"> 
+            <label class="col-sm-2  control-label" >Isi</label>
+            <div class="col-sm-9">
+              <textarea type="text" class="form-control" placeholder="Isi berita" id="txtisi"></textarea>
             </div>
           </div>
         </br>
-          <ul class="sidebar-menu">
-            <li class="header">MENU</li>
-            <li class="active treeview">
-              <a href="homeadmin.php">
-                <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-              </a>
-            </li>
-            <li class="treeview">
-              <a href="abstrak.php">
-                <i class="fa fa-files-o"></i>
-                <span>Kelola Abstrak</span>
-              </a>
-            </li>
-            <li>
-              <a href="pages/widgets.html">
-                <i class="fa fa-th"></i> <span>Kelola Pembayaran</span>
-              </a>
-            </li>
-            <li class="treeview">
-                          <a href="berita.php">
-                <i class="fa fa-bullhorn"></i>
-                <span>Berita</span>
-              </a>
-            </li>
-          </ul>
-        </section>
-      </aside>
+        <div class="form-group"> 
+          <label class="col-sm-2  control-label"></label>
+          <div class="col-sm-9">
+            <button type="submit" class="btn btn-primary " id="btnsave"><i class="fa fa-save"></i> Save</button></div>
+          </div>
+        </div>
+        <!--modal footer-->
+      </div>
+      <!--modal-content-->
+    </div>
+    <!--modal-dialog modal-lg-->
+  </div>
+  <!--form-kantor-modal-->
+</div>
+</section><!-- /.content -->
+</div><!-- /.content-wrapper -->
+<footer class="main-footer">
+  <div class="container tengah">
+    <strong>Copyright © 2017 <a href="index.php">Seminar Nasional Pendidikan Bahasa Indonesia</a></strong> Universitas Muhammadiyah Purworejo
+  </div><!-- /.container -->
+</footer>
+</div><!-- ./wrapper -->
+<script src="plugins/jQuery/jQuery-2.1.4.min.js"></script>
+<!-- Bootstrap 3.3.5 -->
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<!-- AdminLTE App -->
+<script src="dist/js/app.min.js"></script>
 
-      <div class="content-wrapper">
-        <section class="content-header">
-          <h1>
-            Kelola Berita
-          </h1>
-            </br>
-          <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li><a href="#">Berita</a></li>
-            <li class="active">Kelola berita</li>
-          </ol>
-        </section>
-        <!-- Main content -->
-        <section class="content">
-          <div class="row">
-            <div class="col-xs-12">
-              <div class="box">
-              </br>
-                <div class="box-body">
-                  <table id="table_brt" class="table table-bordered table-striped">
-                    <thead>
-                      <tr>
-                        <th style="width:5%" class="sorting">No</th>
-                        <th style="width:25%">Judul</th>
-                        <th style="width:40%">Isi</th>
-                        <th style="width:15%">Tanggal Dibuat</th>
-                        <th></th>
-                      </tr>
-                    </thead>
-                  </table>
-                </div><!-- /.box-body -->
-              </div><!-- /.box -->
-            </div><!-- /.col -->
-          </div><!-- /.row -->
-              <div id="modalbrt" class="modal">
-                <div class="modal-dialog modal-md">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal">×</button>
-                      <h4 class="modal-title">Form Data Berita</h4>
-                    </div>
-                    <!--modal header-->
-                    <div class="modal-body">
-                      <div class="pad" id="infopanel"></div>
-                      <div class="form-horizontal">
-                        <div class="form-group"> 
-                          <label class="col-sm-2  control-label">Judul</label>
-                          <div class="col-sm-9">
-                              <input type="text" class="form-control" id="txtjudul" placeholder="Judul">
-                              <input type="hidden" id="crudmethod" value="N"> 
-                              <input type="hidden" id="txtid" value="0">
-                            </div>
-                        </div>
-                        <div class="form-group"> 
-                          <label class="col-sm-2  control-label" >Isi</label>
-                          <div class="col-sm-9">
-                              <textarea type="text" class="form-control" placeholder="Isi berita" id="txtisi"></textarea>
-                            </div>
-                        </div>
-                        </br>
-                        <div class="form-group"> 
-                          <label class="col-sm-2  control-label"></label>
-                          <div class="col-sm-9">
-                            <button type="submit" class="btn btn-primary " id="btnsave"><i class="fa fa-save"></i> Save</button></div>
-                        </div>
-                      </div>
-                      <!--modal footer-->
-                    </div>
-                    <!--modal-content-->
-                  </div>
-                  <!--modal-dialog modal-lg-->
-                </div>
-                <!--form-kantor-modal-->
-              </div>
-        </section><!-- /.content -->
-      </div><!-- /.content-wrapper -->
-      <footer class="main-footer">
-        <strong>Copyright &copy; 2017 <a href="http://almsaeedstudio.com">Seminar</a>.</strong> All rights reserved.
-      </footer>
-    </div><!-- ./wrapper -->
-    <script src="plugins/jQuery/jQuery-2.1.4.min.js"></script>
-    <!-- Bootstrap 3.3.5 -->
-    <script src="bootstrap/js/bootstrap.min.js"></script>
-    <!-- DataTables -->
-    <script src="plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="plugins/sweetalert/sweetalert.min.js"></script>
 
-    <script src="plugins/datatables/dataTables.bootstrap.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="dist/js/app.min.js"></script>
-
-    <script src="plugins/sweetalert/sweetalert.min.js"></script>
-
-    <script src="berita.js"></script>
-
-    <script src="plugins/bootstrap-notify/bootstrap-notify.min.js"></script>
-  </body>
+<script src="plugins/bootstrap-notify/bootstrap-notify.min.js"></script>
+</body>
 </html>
-  <?php 
+<?php 
 }else{
-    echo "<script language=\"javascript\">alert(\"Silahkan Login Terlebih Dahulu\");document.location.href='login.php';</script>";  
+  echo "<script language=\"javascript\">alert(\"Silahkan Login Terlebih Dahulu\");document.location.href='login.php';</script>";  
 }
 ?>
