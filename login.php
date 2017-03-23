@@ -86,7 +86,7 @@ require('connection.php');
                <span class="fa fa-user form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-              <input type="password" class="form-control input-lg" id="password" name="password" required ="Password" placeholder="Password">
+              <input type="password" class="form-control input-lg" id="password" name="password" required ="Password" placeholder="Password" tabindex="4">
               <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
             <div class="row">
@@ -105,7 +105,7 @@ require('connection.php');
             </label>
             <div class="row">
               <div class="col-xs-12 col-md-6">
-                <input class="form-control" type="text" name="captcha_code" size="10" maxlength="6"/>
+                <input class="form-control" type="text" name="captcha_code" size="10" maxlength="6" tabindex="4"/>
               </div>
               <div class="col-xs-12 col-md-6">
                 <a href="#" onclick="document.getElementById('captcha').src='securimage/securimage_show.php?'+ Math.random(); return false">
@@ -176,7 +176,7 @@ IF(ISSET($_POST['login'])){
       echo "<script language=\"javascript\">alert('Welcome Admin');document.location.href='homeadmin.php';</script>";
     } else if($result['user_status'] == 2){     
       $_SESSION['role'] = "user";
-      header("location:halaman_user.php");
+       echo "<script language=\"javascript\">alert('Selamat Datang');document.location.href='halaman_user.php';</script>";
     }
   }else{
     echo "<script language=\"javascript\">alert(\"Password atau Username Salah !!!\");document.location.href='login.php';</script>";
