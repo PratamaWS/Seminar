@@ -89,7 +89,7 @@ require('koneksi.php');
     </li>
     <li class="treeview">
       <a href="pembayaran.php">
-        <i class="fa fa-th"></i> <span>Kelola Pembayaran</span>
+        <i class="fa fa-money"></i> <span>Kelola Pembayaran</span>
       </a>
     </li>
     <li class="treeview">

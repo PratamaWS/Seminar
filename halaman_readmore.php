@@ -23,8 +23,8 @@
         <nav class="navbar navbar-static-top">
           <div class="container">
             <div class="navbar-header">
-              <a href="index.html" class="navbar-brand"></a>
-              <a href="index.html" class="navbar-brand "><b>Seminar Nasional </b>Pendidikan Bahasa Indonesia</a>
+              <a href="index.php" class="navbar-brand"></a>
+              <a href="index.php" class="navbar-brand "><b>Seminar Nasional </b>Pendidikan Bahasa Indonesia</a>
               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
                 <i class="fa fa-bars"></i>
               </button>
@@ -104,28 +104,6 @@
               </div><!-- /.box -->
             </div><!-- /.col -->
              <div class="col-md-4">
-               <div class="box box-purple">
-                <div class="box-header with-border">
-                  <h3 class="box-title">SEARCH</h3>
-                </div><!-- /.box-header -->
-                <!-- form start -->
-                <form class="form-horizontal">
-                  <div class="box-body">
-                  <div class="box-body"> 
-                          <form action="#" method="get" class="sidebar-form">
-            <div class="input-group">
-              <input type="text" name="q" class="form-control" placeholder="Search...">
-              <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
-              </span>
-            </div>
-              </form>
-                  <br>
-                </div>
-                  </div><!-- /.box-body -->
-                </form>
-              </div><!-- /.box -->
-
               <div class="box box-purple">
                 <div class="box-header with-border">
                   <h3 class="box-title">MASUK AKUN</h3>

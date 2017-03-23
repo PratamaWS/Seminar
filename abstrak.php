@@ -82,7 +82,7 @@ IF(ISSET($_SESSION['user'])){
       </li>
       <li>
         <a href="pembayaran.php">
-          <i class="fa fa-credit-card"></i> <span>Kelola Pembayaran</span>
+          <i class="fa fa-money"></i> <span>Kelola Pembayaran</span>
         </a>
       </li>
       <li class="treeview">
