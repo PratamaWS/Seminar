@@ -104,28 +104,6 @@
               </div><!-- /.box -->
             </div><!-- /.col -->
              <div class="col-md-4">
-               <div class="box box-purple">
-                <div class="box-header with-border">
-                  <h3 class="box-title">SEARCH</h3>
-                </div><!-- /.box-header -->
-                <!-- form start -->
-                <form class="form-horizontal">
-                  <div class="box-body">
-                  <div class="box-body"> 
-                          <form action="#" method="get" class="sidebar-form">
-            <div class="input-group">
-              <input type="text" name="q" class="form-control" placeholder="Search...">
-              <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
-              </span>
-            </div>
-              </form>
-                  <br>
-                </div>
-                  </div><!-- /.box-body -->
-                </form>
-              </div><!-- /.box -->
-
               <div class="box box-purple">
                 <div class="box-header with-border">
                   <h3 class="box-title">MASUK AKUN</h3>
