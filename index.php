@@ -198,11 +198,9 @@ require('connection.php');
             </div><!-- /.box-body -->
           </form>
         </div><!-- /.box -->
-
-<<<<<<< HEAD
               <div class="box box-purple">
                 <div class="box-header with-border">
-                  <h3 class="box-title">ACcOUNT</h3>
+                  <h3 class="box-title">ACCOUNT</h3>
                 </div><!-- /.box-header -->
                 <!-- form start -->
                 <form class="form-horizontal">
@@ -232,40 +230,7 @@ require('connection.php');
       </footer>
       </footer>
     </div><!-- ./wrapper -->
-=======
-        <div class="box box-purple">
-          <div class="box-header with-border">
-            <h3 class="box-title">MASUK AKUN</h3>
-          </div><!-- /.box-header -->
-          <!-- form start -->
-          <form class="form-horizontal">
-            <div class="box-body">
-              <div class="box-body">
-                <a href="login.php"class="btn btn-block btn-social btn-github btn-flat">
-                  <i class="fa fa-user"></i> LOGIN
-                </a>
-                <a href="halaman_register.php"class="btn btn-block btn-social btn-primary btn-flat">
-                  <i class="fa fa-plus"></i> REGISTER
-                </a>
-                <br>
-              </div>
-            </div><!-- /.box-body -->
-          </form>
-        </div><!-- /.box -->
-      </div><!--/.col (right) -->
-    </div><!-- /.row -->
-  </div><!-- /.row -->
-</section><!-- /.content -->
-</div><!-- /.container -->
-</div><!-- /.content-wrapper -->
-<footer class="main-footer">
-  <div class="container tengah">
-    <strong>Copyright © 2017 <a href="index.php">Seminar Nasional Pendidikan Bahasa Indonesia</a></strong> Universitas Muhammadiyah Purworejo
-  </div><!-- /.container -->
-</footer>
-</footer>
-</div><!-- ./wrapper -->
->>>>>>> origin/master
+
 
 <!-- jQuery 2.1.4 -->
 <script src="plugins/jQuery/jQuery-2.1.4.min.js"></script>
