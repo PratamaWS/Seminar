@@ -13,6 +13,19 @@ require('connection.php');
 <!DOCTYPE html>
 <html>
 <head>
+<<<<<<< HEAD
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Home</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.5 -->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+=======
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Home</title>
@@ -24,6 +37,7 @@ require('connection.php');
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+>>>>>>> origin/master
 
   <link rel="stylesheet" href="dist/css/skin-blue-light.min.css">
 
@@ -185,6 +199,40 @@ require('connection.php');
           </form>
         </div><!-- /.box -->
 
+<<<<<<< HEAD
+              <div class="box box-purple">
+                <div class="box-header with-border">
+                  <h3 class="box-title">ACcOUNT</h3>
+                </div><!-- /.box-header -->
+                <!-- form start -->
+                <form class="form-horizontal">
+                  <div class="box-body">
+                  <div class="box-body">
+                  <a href="login.php"class="btn btn-block btn-social btn-github btn-flat">
+                    <i class="fa fa-user"></i> LOGIN
+                  </a>
+                  <a href="halaman_register.php"class="btn btn-block btn-social btn-primary btn-flat">
+                    <i class="fa fa-plus"></i> REGISTER
+                  </a>
+                  <br>
+                </div>
+                  </div><!-- /.box-body -->
+                </form>
+              </div><!-- /.box -->
+            </div><!--/.col (right) -->
+          </div><!-- /.row -->
+          </div><!-- /.row -->
+          </section><!-- /.content -->
+        </div><!-- /.container -->
+      </div><!-- /.content-wrapper -->
+             <footer class="main-footer">
+        <div class="container tengah">
+          <strong>Copyright © 2017 <a href="index.php">Seminar Nasional Pendidikan Bahasa Indonesia</a></strong> Universitas Muhammadiyah Purworejo
+        </div><!-- /.container -->
+      </footer>
+      </footer>
+    </div><!-- ./wrapper -->
+=======
         <div class="box box-purple">
           <div class="box-header with-border">
             <h3 class="box-title">MASUK AKUN</h3>
@@ -217,6 +265,7 @@ require('connection.php');
 </footer>
 </footer>
 </div><!-- ./wrapper -->
+>>>>>>> origin/master
 
 <!-- jQuery 2.1.4 -->
 <script src="plugins/jQuery/jQuery-2.1.4.min.js"></script>
