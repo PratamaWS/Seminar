@@ -62,7 +62,7 @@ require('connection.php');
             </button>
           </div>
           <div class="collapse navbar-collapse pull-right" id="navbar-collapse">
-           <a href="index.html" class="navbar-brand"></a>
+           <a href="index.php" class="navbar-brand"></a>
            <ul class="nav navbar-nav">
             <li class="active"><a href="index.php"><b>Home </b><span class="sr-only">(current)</span><i class="fa fa-home"></i></a></li>
             <li><a href="#">Link</a></li>

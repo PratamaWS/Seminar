@@ -23,8 +23,8 @@
         <nav class="navbar navbar-static-top">
           <div class="container">
             <div class="navbar-header">
-              <a href="index.html" class="navbar-brand"></a>
-              <a href="index.html" class="navbar-brand "><b>Seminar Nasional </b>Pendidikan Bahasa Indonesia</a>
+              <a href="index.php" class="navbar-brand"></a>
+              <a href="index.php" class="navbar-brand "><b>Seminar Nasional </b>Pendidikan Bahasa Indonesia</a>
               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
                 <i class="fa fa-bars"></i>
               </button>
