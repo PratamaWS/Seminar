@@ -82,8 +82,12 @@
              <span class="fa fa-user form-control-feedback"></span>
            </div>
            <div class="form-group has-feedback">
-            <input type="password" class="form-control input-lg" id="password" name="password" placeholder="Password" required ="Password">
-            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+            <input type="password" class="form-control input-lg" id="password" name="password" placeholder="Password" required tabindex="4">
+            <span class="fa fa-unlock-alt form-control-feedback"></span>
+          </div>
+          <div class="form-group has-feedback">
+            <input type="password" class="form-control input-lg" id="password2" name="password2" placeholder="Konfirmasi Password" required tabindex="4">
+            <span class="fa fa-lock form-control-feedback"></span>
           </div>
           <div class="row">
             <div class="col-xs-4 col-sm-3 col-md-3">
@@ -100,7 +104,7 @@
             </label>
             <div class="row">
               <div class="col-xs-12 col-md-6">
-                <input class="form-control" type="text" name="captcha_code" size="10" maxlength="6"/>
+                <input class="form-control" type="text" name="captcha_code" size="10" maxlength="6" tabindex="4"/>
               </div>
               <div class="col-xs-12 col-md-6">
                 <a href="#" onclick="document.getElementById('captcha').src='securimage/securimage_show.php?'+ Math.random(); return false">
