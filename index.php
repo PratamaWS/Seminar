@@ -138,7 +138,7 @@ require('connection.php');
                         </div><!-- /.attachment-pushed -->
                       </div><!-- /.attachment-block -->
                     </br>
-                    <a class="btn btn-primary btn-flat btn-sm" href="halaman_readmore.php?&id=<?=$data['berita_id'];?>">Read more</a>  
+                    <a class="btn btn-primary btn-flat btn-sm" href="halaman_readmore.php?&id=<?=$row['berita_id'];?>">Read more</a>  
                   </div><!-- /.box-body -->
                 </div><!-- /.box -->
                   <?php
