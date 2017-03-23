@@ -29,6 +29,26 @@ require('connection.php');
 
 </head>
 <body class="skin-blue-light fixed layout-top-nav">
+  <?php
+    include 'pagination2.php';
+//        pagination config start
+    $q = isset($_REQUEST['q']) ? urldecode($_REQUEST['q']) : ''; // untuk keyword pencarian
+    $page = isset($_GET['page']) ? intval($_GET['page']) : 1; // untuk nomor halaman
+    $adjacents = isset($_GET['adjacents']) ? intval($_GET['adjacents']) : 3; // khusus style pagination 2 dan 3
+    $rpp = 4; // jumlah record per halaman
+
+    $db_link = mysqli_connect('localhost', 'root', '', 'seminar'); // sesuaikan username dan password mysqli anda
+    $sql = "SELECT * FROM berita WHERE berita_judul LIKE '%$q%' ORDER BY berita_judul"; // query silahkan disesuaikan
+    $result = mysqli_query($db_link, $sql); // eksekusi query
+
+    $tcount = mysqli_num_rows($result); // jumlah total baris
+    $tpages = isset($tcount) ? ceil($tcount / $rpp) : 1; // jumlah total halaman
+    $count = 0; // untuk paginasi
+    $i = ($page - 1) * $rpp; // batas paginasi
+    $no_urut = ($page - 1) * $rpp; // nomor urut
+    $reload = $_SERVER['PHP_SELF'] . "?q=" . $q . "&amp;adjacents=" . $adjacents; // untuk link ke halaman lain
+//        pagination config end
+  ?>
   <div class="wrapper">
     <header class="main-header">
       <nav class="navbar navbar-static-top">
@@ -85,30 +105,32 @@ require('connection.php');
           <div class="row">
             <div class="col-md-8">
              <?php
-             $sql = "SELECT * FROM berita ORDER BY berita_id DESC";
+             $sql = "SELECT * FROM berita WHERE berita_judul LIKE '%$q%' ORDER BY berita_judul";;
              $resultsql = mysqli_query($conn, $sql);
              /*$no = 1+$posisi;*/
              $jumlah = mysqli_num_rows($resultsql);
              if ($jumlah<1) {
               ?>
-              <p>Berita tidak ditemukan</p>
+              <h3>Berita tidak ditemukan</h3>
               <?php
             }
             if ($jumlah>0) {
-              while ($row = mysqli_fetch_assoc($resultsql)) {
-                $judul  = $row['berita_judul'];
-                $isi    = $row['berita_isi'];
-                $tanggal= $row['berita_tanggal'];
-                ?>
-                <div class="box box-widget">
+              while (($count < $rpp) && ($i < $tcount)) {
+                  mysqli_data_seek($result, $i);
+                  $data = mysqli_fetch_array($result);
+                  $judul  = $data['berita_judul'];
+                  $isi    = $data['berita_isi'];
+                  $tanggal= $data['berita_tanggal'];
+                  ?>
+                  <div class="box box-widget">
                   <div class='box-header with-border bg-gray disabled color-palette'>
-                    <h3><?=$row['berita_judul'];?></h3> 
+                    <h3><?=$data['berita_judul'];?></h3> 
                   </div>
                   <div class='box-header with-border bg-grey disabled color-palette'>
-                    <span class='description '>Post by Admin  on  <i class="fa fa-calendar"></i><b>  <?=$row['berita_tanggal'];?></b> </span></div>
+                    <span class='description '>Post by Admin  on  <i class="fa fa-calendar"></i><b>  <?=$data['berita_tanggal'];?></b> </span></div>
                     <div class='box-body kirikanan'>
                       <!-- post text -->
-                      <p><?=substr($row['berita_isi'],0,300);?></p>
+                      <p><?=substr($data['berita_isi'],0,300);?></p>
                       <!-- Attachment -->
                       <div class="attachment-block clearfix">
                         <!-- <img class="attachment-img" src="<?=$hasil_data['gambar'];?>" alt="image"> -->
@@ -119,18 +141,17 @@ require('connection.php');
                     <a class="btn btn-primary btn-flat btn-sm" href="halaman_readmore.php?&id=<?=$row['berita_id'];?>">Read more</a>  
                   </div><!-- /.box-body -->
                 </div><!-- /.box -->
-
-                <?php  
+                  <?php
+                  $i++;
+                  $count++;
               }
             }
             ?>  <div class="box-footer clearfix">
-            <ul class="pagination pagination-sm no-margin pull-right">
-              <li><a href="#">&laquo;</a></li>
-              <li><a href="#">1</a></li>
-              <li><a href="#">2</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">&raquo;</a></li>
-            </ul>
+            <div class="row">
+                <div class="col-md-12">                   
+                    <?php echo paginate_two($reload, $page, $tpages, $adjacents); ?>
+                </div>
+            </div>
           </div>
         </div><!-- /.col -->
         <div class="col-md-4">
@@ -142,14 +163,22 @@ require('connection.php');
           <form class="form-horizontal">
             <div class="box-body">
               <div class="box-body"> 
-                <form action="#" method="get" class="sidebar-form">
-                  <div class="input-group">
-                    <input type="text" name="q" class="form-control" placeholder="Search...">
-                    <span class="input-group-btn">
-                      <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
-                    </span>
-                  </div>
-                </form>
+                <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="GET">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search Judul Berita..." name="q" value="<?php echo $q ?>">
+                            <span class="input-group-btn">
+                                <?php
+                                if ($q <> '')
+                                {
+                                    ?>
+                                    <a class="btn btn-default" href="<?php echo $_SERVER['PHP_SELF'] ?>">Reset</a>
+                                    <?php
+                                }
+                                ?>
+                                <button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
+                            </span>
+                        </div>
+                    </form>
                 <br>
               </div>
             </div><!-- /.box-body -->
