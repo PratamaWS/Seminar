@@ -1,7 +1,6 @@
 
 <html>
 <head>
-<<<<<<< HEAD
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Register</title>
@@ -12,7 +11,6 @@
     <!-- Font Awesome -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">   <!-- Theme style -->
     <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
-=======
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Register</title>
@@ -24,10 +22,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
->>>>>>> origin/master
-
   <link rel="stylesheet" href="dist/css/skin-blue-light.min.css">
-
 </head>
 <body class="skin-blue-light fixed layout-top-nav">
   <div class="wrapper">

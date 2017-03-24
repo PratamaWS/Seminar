@@ -13,7 +13,7 @@ require('connection.php');
 <!DOCTYPE html>
 <html>
 <head>
-<<<<<<< HEAD
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Home</title>
@@ -25,7 +25,7 @@ require('connection.php');
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
-=======
+
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Home</title>
@@ -37,10 +37,9 @@ require('connection.php');
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
->>>>>>> origin/master
 
   <link rel="stylesheet" href="dist/css/skin-blue-light.min.css">
-
+  <script src="plugins/jQuery/jQuery-2.1.4.min.js"></script>
 </head>
 <body class="skin-blue-light fixed layout-top-nav">
   <?php
@@ -119,13 +118,16 @@ require('connection.php');
           <div class="row">
             <div class="col-md-8">
              <?php
-             $sql = "SELECT * FROM berita WHERE berita_judul LIKE '%$q%' ORDER BY berita_judul";;
+             $sql = "SELECT * FROM berita WHERE berita_judul LIKE '%$q%' ORDER BY berita_judul";
              $resultsql = mysqli_query($conn, $sql);
              /*$no = 1+$posisi;*/
              $jumlah = mysqli_num_rows($resultsql);
              if ($jumlah<1) {
               ?>
-              <h3>Berita tidak ditemukan</h3>
+              <script>
+                $('#paging2').hide();
+              </script>
+              <h3 align="center">Maaf, Berita tidak ditemukan</h3>
               <?php
             }
             if ($jumlah>0) {
@@ -162,8 +164,20 @@ require('connection.php');
             }
             ?>  <div class="box-footer clearfix">
             <div class="row">
-                <div class="col-md-12">                   
-                    <?php echo paginate_two($reload, $page, $tpages, $adjacents); ?>
+                <div class="col-md-12" id="paging2">                                     
+                  <?php echo paginate_two($reload, $page, $tpages, $adjacents); 
+                  $sql = "SELECT * FROM berita WHERE berita_judul LIKE '%$q%' ORDER BY berita_judul";
+                   $resultsql = mysqli_query($conn, $sql);
+                   /*$no = 1+$posisi;*/
+                   $jumlah = mysqli_num_rows($resultsql);
+                   if ($jumlah<1) {
+                    ?>
+                    <script>
+                      $('#paging2').hide();
+                    </script>
+                    <?php
+                  }   
+                  ?>   
                 </div>
             </div>
           </div>
@@ -233,7 +247,7 @@ require('connection.php');
 
 
 <!-- jQuery 2.1.4 -->
-<script src="plugins/jQuery/jQuery-2.1.4.min.js"></script>
+
 <!-- Bootstrap 3.3.5 -->
 <script src="bootstrap/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
