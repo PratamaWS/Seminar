@@ -15,10 +15,13 @@ IF(ISSET($_SESSION['user'])){
     <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="dist/css/skin-blue-light.min.css">
     <link rel="stylesheet" href="plugins/sweetalert/sweetalert.css">
+    <link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
   </head>
+
   <body class="skin-blue-light fixed sidebar-mini ">
     <div class="wrapper">
-      <header class="main-header">
+
+            <header class="main-header">
         <a href="index.php" class="logo">
           <span class="logo-lg"><b>Admin</b></span>
         </a>
@@ -41,7 +44,8 @@ IF(ISSET($_SESSION['user'])){
           </div>
         </nav>
       </header>
-      <aside class="main-sidebar">
+      <!-- Left side column. contains the logo and sidebar -->
+            <aside class="main-sidebar">
         <section class="sidebar">
           </br>
           <div class="user-panel">
@@ -87,7 +91,9 @@ IF(ISSET($_SESSION['user'])){
         </section>
       </aside>
 
+      <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
             Kelola Berita
@@ -99,6 +105,8 @@ IF(ISSET($_SESSION['user'])){
             <li class="active">Kelola berita</li>
           </ol>
         </section>
+
+        <!-- Main content -->
         <section class="content">
           <div class="row">
             <div class="col-xs-12">
@@ -122,9 +130,10 @@ IF(ISSET($_SESSION['user'])){
                 </div><!-- /.box-body -->
               </div><!-- /.box -->
             </div><!-- /.col -->
-          </div><!-- /.row -->
 
-          <div id="modalbrt" class="modal">
+          </div><!-- ./row -->
+
+        <div id="modalbrt" class="modal">
             <div class="modal-dialog modal-md">
               <div class="modal-content">
                 <div class="modal-header">
@@ -135,23 +144,25 @@ IF(ISSET($_SESSION['user'])){
                   <div class="pad" id="infopanel"></div>
                   <div class="form-horizontal">
                     <div class="form-group"> 
-                      <label class="col-sm-2  control-label">Judul Berita</label>
-                      <div class="col-sm-9">
-                        <input type="text" class="form-control" id="txtjudul" placeholder="Judul">
+                      <div class="col-sm-12">
+                        <input type="text" class="form-control" id="txtjudul" placeholder="Judul Berita">
                         <input type="hidden" id="crudmethod" value="N"> 
                         <input type="hidden" id="txtid" value="0">
                       </div>
                     </div>
                     <div class="form-group"> 
-                      <label class="col-sm-2  control-label" >Isi Berita</label>
-                      <div class="col-sm-9">
-                        <textarea type="text" class="form-control" placeholder="Isi berita" id="txtisi"></textarea>
+                  <div class="col-md-12">
+                <div class="box-header">
+                <div class="box-body pad">
+                    <textarea id="txtisi" type="text"  name="txtisi" rows="10" cols="80" class="textarea" placeholder="Tulis isi Berita" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                </div>
+              </div>
+                       <!--  <textarea type="text" class="form-control" placeholder="Isi berita" id="txtisi"></textarea> -->
                       </div>
                     </div>
-                    </br>
-                    <div class="form-group"> 
+                    <div class="form-group "> 
                       <label class="col-sm-2  control-label"></label>
-                      <div class="col-sm-9">
+                      <div class="col-sm-12 ">
                         <button type="submit" class="btn btn-primary " id="btnsave"><i class="fa fa-save"></i> Save</button>
                       </div>
                     </div>
@@ -160,21 +171,26 @@ IF(ISSET($_SESSION['user'])){
               </div>
             </div>
           </div>
+
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
-      <footer class="main-footer tengah">
+       <footer class="main-footer tengah">
         <strong>Copyright &copy; 2017 <a href="">Seminar</a>.</strong> All rights reserved.
       </footer>
     </div><!-- ./wrapper -->
-  <script src="plugins/jQuery/jQuery-2.1.4.min.js"></script>
+    <script src="plugins/jQuery/jQuery-2.1.4.min.js"></script>
   <script src="bootstrap/js/bootstrap.min.js"></script>
   <script src="plugins/datatables/jquery.dataTables.min.js"></script>
   <script src="plugins/datatables/dataTables.bootstrap.min.js"></script>
-  <script src="plugins/fastclick/fastclick.min.js"></script>
-  <script src="dist/js/app.min.js"></script>
   <script src="plugins/sweetalert/sweetalert.min.js"></script>
   <script src="berita.js"></script>
   <script src="plugins/bootstrap-notify/bootstrap-notify.min.js"></script>
+  <script src="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+    <script>
+      $(function () {
+        $(".textarea").wysihtml5();
+      });
+    </script>
   </body>
 </html>
 <?php 

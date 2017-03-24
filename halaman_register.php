@@ -63,23 +63,19 @@
   <div class="content-wrapper">
     <div class="container">
       <!-- Content Header (Page header) -->
-      <section class="content-header">
-        <h1>
-          Register
-        </h1>
-        <ol class="breadcrumb">
-          <li><a href="index.php"><i class="fa fa-dashboard"></i> Home</a></li>
-          <li class="active">Register form</li>
-        </ol>
+      <section class="content-header ">
       </section>
       <!-- Main content -->
+      <div class="col-md-3">
+      </div>
+       <div class="col-md-6">
       <section class="content">
         <div class="box box-default">
           <div class="box-body">
-          </br>
-          <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+
+          <div class="col-xs-12 col-sm-12 col-md-10 col-sm-offset-2 col-md-offset-1">
            <form method="post" action="daftar.php">
-            <h2><b>REGISTER </b></h2>
+            <h2 class="tengah"><b>REGISTER </b></h2>
             <hr class="colorgraph">
             <div class="form-group has-feedback">
              <input type="text" class="form-control input-lg" name="email" required id="email" placeholder="Alamat e-mail" tabindex="4"/>

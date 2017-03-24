@@ -2,20 +2,6 @@
 require('connection.php');
 ?>
 <head>
-<<<<<<< HEAD
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Login User</title>
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <!-- Bootstrap 3.3.5 -->
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <!-- Font Awesome -->
-    <!-- Theme style -->
-    <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
-=======
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Login User</title>
@@ -27,7 +13,6 @@ require('connection.php');
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
->>>>>>> origin/master
 
   <link rel="stylesheet" href="dist/css/skin-blue-light.min.css">
 
@@ -71,21 +56,17 @@ require('connection.php');
   <div class="content-wrapper">
     <div class="container">
       <!-- Content Header (Page header) -->
-      <section class="content-header">
-        <h1>
-          Login User
-        </h1>
-        <ol class="breadcrumb">
-          <li><a href="index.php"><i class="fa fa-dashboard"></i> Home</a></li>
-          <li class="active">Login form</li>
-        </ol>
+      <section class="content-header ">
       </section>
       <!-- Main content -->
+      <div class="col-md-3">
+      </div>
+       <div class="col-md-6">
       <section class="content">
         <div class="box box-default">
           <div class="box-body">
-          </br>
-          <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+
+          <div class="col-xs-12 col-sm-12 col-md-10 col-sm-offset-2 col-md-offset-1">
            <?php
            if(isset($pesan)){
             ?>
@@ -94,18 +75,18 @@ require('connection.php');
           }
           ?>
           <form action="login.php" method="POST">
-            <h2><b>LOGIN </b></h2>
+            <h2 class="tengah"><b>LOGIN USER</b></h2>
             <hr class="colorgraph">
             <div class="form-group has-feedback">
                <input type="text" class="form-control input-lg" name="username" id="username" required placeholder="Username" tabindex="4"/>
                <span class="fa fa-user form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-              <input type="password" class="form-control input-lg" id="password" name="password" required ="Password" placeholder="Password" tabindex="4">
+              <input type="password" class="form-control input-lg" id="password" name="password" required ="Password" placeholder="Password">
               <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
             <div class="row">
-              <div class="col-xs-4 col-sm-3 col-md-3">
+              <div class="col-xs-2 col-sm-3 col-md-3">
               <!-- span class="button-checkbox">
                 <button type="button" class="btn" data-color="info" tabindex="7">Remember me</button>
                             <input type="checkbox" name="t_and_c" id="t_and_c" class="hidden" value="1">
@@ -120,7 +101,7 @@ require('connection.php');
             </label>
             <div class="row">
               <div class="col-xs-12 col-md-6">
-                <input class="form-control" type="text" name="captcha_code" size="10" maxlength="6" tabindex="4"/>
+                <input class="form-control" type="text" name="captcha_code" size="10" maxlength="6"/>
               </div>
               <div class="col-xs-12 col-md-6">
                 <a href="#" onclick="document.getElementById('captcha').src='securimage/securimage_show.php?'+ Math.random(); return false">
@@ -134,11 +115,11 @@ require('connection.php');
               <div class="col-xs-12 col-md-6">Belum punya akun ? <a href="halaman_register.php">Register</a></div>
             </div>
           </form>
-          </br></br></br>
-        </br>
+          </br>
       </div>
     </div><!-- /.box-body -->
   </div><!-- /.box -->
+  </div>
 </section><!-- /.content -->
 </div><!-- /.container -->
 </div><!-- /.content-wrapper -->
@@ -191,7 +172,7 @@ IF(ISSET($_POST['login'])){
       echo "<script language=\"javascript\">alert('Welcome Admin');document.location.href='homeadmin.php';</script>";
     } else if($result['user_status'] == 2){     
       $_SESSION['role'] = "user";
-       echo "<script language=\"javascript\">alert('Selamat Datang');document.location.href='halaman_user.php';</script>";
+      header("location:halaman_user.php");
     }
   }else{
     echo "<script language=\"javascript\">alert(\"Password atau Username Salah !!!\");document.location.href='login.php';</script>";
