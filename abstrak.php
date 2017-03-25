@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <?php 
 session_start();
+if (!isset($_SESSION['user'])){
+ echo "<script language=\"javascript\">alert(\"Silahkan Login Terlebih Dahulu\");document.location.href='login.php';</script>";  
+}
+
+if($_SESSION['role'] == "user"){
+  header("location:halaman_user.php");
+}
+
 IF(ISSET($_SESSION['user'])){
 ?>
   <html>

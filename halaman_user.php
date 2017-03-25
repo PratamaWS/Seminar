@@ -70,7 +70,7 @@ IF(ISSET($_SESSION['user'])){
       <li class="header">MENU</li>
       <li class="active treeview">
         <a href="homeadmin.php">
-          <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+          <i class="fa fa-dashboard"></i> <span>Upload Abstrak</span>
         </a>
       </li>
       <li class="treeview">
