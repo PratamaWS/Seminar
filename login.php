@@ -160,7 +160,9 @@ IF(ISSET($_POST['login'])){
   $data = mysql_fetch_array(mysql_query("SELECT * FROM user WHERE user_name='$username' AND user_password='$password'"));
   IF($cek > 0)
   {
-    session_start();
+    if(!isset($_SESSION)){ 
+        session_start(); 
+    } 
     $user= $data['user_name'];
     $_SESSION['user'] = $user;
     $sql = "SELECT user_status FROM user WHERE user_name = '$user' ";
@@ -172,7 +174,7 @@ IF(ISSET($_POST['login'])){
       echo "<script language=\"javascript\">alert('Welcome Admin');document.location.href='homeadmin.php';</script>";
     } else if($result['user_status'] == 2){     
       $_SESSION['role'] = "user";
-      header("location:halaman_user.php");
+     echo "<script language=\"javascript\">alert('Login Sukses');document.location.href='halaman_user.php';</script>";
     }
   }else{
     echo "<script language=\"javascript\">alert(\"Password atau Username Salah !!!\");document.location.href='login.php';</script>";

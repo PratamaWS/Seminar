@@ -156,7 +156,7 @@ IF(ISSET($_SESSION['user'])){
         <div class="form-group">  
           <label>Author 2<input type="text" class="form-control" name="author2" required=""><input type="radio" name="author2abs" value="hadir" checked="checked">Hadir<input type="radio" name="author2abs" value="Tidak">Tidak</label>
         </div> 
-        <div class="form-group">
+        <div class="form-group">.
           <label>Author 3<input type="text" class="form-control" name="author3"><input type="radio" name="author3abs" value="hadir">Hadir<input type="radio" name="author3abs" value="Tidak" checked="checked">Tidak</label>      
         </div>  
 
