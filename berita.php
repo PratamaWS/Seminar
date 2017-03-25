@@ -112,7 +112,7 @@ IF(ISSET($_SESSION['user'])){
             <div class="col-xs-12">
               <div class="box">
                 <div class="box-header">
-                 <button type="submit" class="btn btn-primary " id="btnadd" name="btnadd"><i class="fa fa-plus"></i> Tambah Data</button>
+                 <button type="submit" class="btn btn-primary " id="btnadd" name="btnadd"><i class="fa fa-plus"></i> Tambah Berita</button>
                 </div>
                 </br>
                 <div class="box-body">

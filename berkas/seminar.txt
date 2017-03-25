@@ -1,0 +1,169 @@
+-- phpMyAdmin SQL Dump
+-- version 4.0.4.1
+-- http://www.phpmyadmin.net
+--
+-- Inang: 127.0.0.1
+-- Waktu pembuatan: 15 Mar 2017 pada 10.32
+-- Versi Server: 5.6.11
+-- Versi PHP: 5.5.1
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+--
+-- Basis data: `seminar`
+--
+CREATE DATABASE IF NOT EXISTS `seminar` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `seminar`;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `admin`
+--
+
+CREATE TABLE IF NOT EXISTS `admin` (
+  `id` int(20) NOT NULL AUTO_INCREMENT,
+  `username` varchar(20) NOT NULL,
+  `password` varchar(20) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data untuk tabel `admin`
+--
+
+INSERT INTO `admin` (`id`, `username`, `password`, `email`) VALUES
+(1, 'admin', 'admin', 'Yeye@gmail.com'),
+(2, 'nuk', 'man', 'sinuk@gmail.com');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `berita`
+--
+
+CREATE TABLE IF NOT EXISTS `berita` (
+  `berita_judul` varchar(50) NOT NULL,
+  `berita_isi` text NOT NULL,
+  `berita_tanggal` varchar(25) NOT NULL,
+  `berita_id` int(20) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`berita_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=35 ;
+
+--
+-- Dumping data untuk tabel `berita`
+--
+
+INSERT INTO `berita` (`berita_judul`, `berita_isi`, `berita_tanggal`, `berita_id`) VALUES
+('fdscx', 'wfdscx', '2017-03-10', 8),
+('d', 'd', '2017-03-07', 19),
+('a', 'a', '2017-03-10', 23),
+('s', 's', '2017-03-10', 24),
+('a', 'a', '2017-03-10', 25),
+('s', 's', '2017-03-10', 29),
+('s', 's', '2017-03-10', 30),
+('Hari ini hari yang cerah', 'CERAHHH SEKALI BOS', '', 31),
+('Hari ini hari yang cerah', 'CERAHHH SEKALI BOS SAKING CERAHNYA SAYA HARUS MEMAKAI KACAMATA BERWARNA HITAM UNTUK BERJALAN DARI RUMAH MENUJU KANTOR GUNA MENYELESAIKAN PEKERJAAN YANG MAKIN HARI MAKIN MENUMPU DAN TAK KUNJUNG REDA. UGH', '', 32),
+('KEKUATAN DARI DALAM', 'Semua kekuatan ini berasal dari dalam diri yang tidak diketahui siapapun kecuali saya seorang diri yang mendapatkan kekuatan ini sejak saya lahir di dunia ini beberapa tahun yang lalu dimana saya mungkin melupakannya karena tidak ada seorangpun yang mengingatkan saya akah hal itu', '2017-03-11 01:46:23', 33),
+('SINGO', 'SINGO GONDRONG', '2017-03-15', 34);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `datauser`
+--
+
+CREATE TABLE IF NOT EXISTS `datauser` (
+  `id_data` int(20) NOT NULL AUTO_INCREMENT,
+  `nama_aut` varchar(30) NOT NULL,
+  `judul_abs` varchar(60) NOT NULL,
+  `file_abs` varchar(60) NOT NULL,
+  `status_lolos` varchar(50) NOT NULL,
+  `status_bayar` varchar(11) NOT NULL,
+  `file_mak` varchar(200) NOT NULL,
+  `status_mak` varchar(20) NOT NULL,
+  PRIMARY KEY (`id_data`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+
+--
+-- Dumping data untuk tabel `datauser`
+--
+
+INSERT INTO `datauser` (`id_data`, `nama_aut`, `judul_abs`, `file_abs`, `status_lolos`, `status_bayar`, `file_mak`, `status_mak`) VALUES
+(1, 'yeye', 'tt', '0MTF02168.pdf', 'Lolos', 'Belum', '', ''),
+(2, 'sasad', 'saasx', 'Thema.docx', 'Lolos', 'Sudah', '', ''),
+(3, 'sa', 'das', '0MTF02168.pdf 	', 'Lolos', 'Sudah', '', ''),
+(4, '', '', '', 'Lolos', '', '', ''),
+(5, '', '', '', 'Lolos', '', '', ''),
+(6, '', '', '', 'Lolos', '', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `kategori`
+--
+
+CREATE TABLE IF NOT EXISTS `kategori` (
+  `kategori_id` int(5) NOT NULL AUTO_INCREMENT,
+  `kategori_nama` varchar(100) NOT NULL,
+  PRIMARY KEY (`kategori_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data untuk tabel `kategori`
+--
+
+INSERT INTO `kategori` (`kategori_id`, `kategori_nama`) VALUES
+(1, 'Inovasi Teknologi'),
+(2, 'sadasd');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `makalah`
+--
+
+CREATE TABLE IF NOT EXISTS `makalah` (
+  `makalah_id` int(20) NOT NULL,
+  `makalah_abstrak_file` varchar(20) NOT NULL,
+  `makalah_file` varchar(20) NOT NULL,
+  `makalah_status` varchar(20) NOT NULL,
+  `makalah_create_date` datetime(6) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `user`
+--
+
+CREATE TABLE IF NOT EXISTS `user` (
+  `user_id` int(20) NOT NULL AUTO_INCREMENT,
+  `user_name` varchar(60) DEFAULT NULL,
+  `user_email` varchar(40) DEFAULT NULL,
+  `user_password` varchar(30) DEFAULT NULL,
+  `user_create_date` datetime(6) NOT NULL,
+  `user_status` varchar(30) NOT NULL,
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data untuk tabel `user`
+--
+
+INSERT INTO `user` (`user_id`, `user_name`, `user_email`, `user_password`, `user_create_date`, `user_status`) VALUES
+(1, 'sinuk', 'sinuk@gmail.com', 'sinuk', '2017-03-10 23:26:16.000000', '2'),
+(2, 'sim', 'siman@gmail.com', 'man', '2017-03-10 23:30:47.000000', '2'),
+(3, 'admin', 'admin@gmail.com', 'admin', '0000-00-00 00:00:00.000000', '1');
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -29,6 +29,7 @@ if(isset($_POST["upload"])){
 		$author5abs = $_POST['author5abs'];
 		$tanggal = mktime(date("m"),date("d"),date("Y"));
 		$tanggal_ditambahkan = date("Y-m-d", $tanggal);
+		
 		if(move_uploaded_file($filetmp, $filepath)){
 			$sql = "INSERT INTO $tablename (judul_abs, file_abs, keyword, kategori, author1, author1abs, author2, author2abs, author3, 
 								author3abs, author4, author4abs, author5, author5abs, tanggal_ditambahkan, status_lolos) 

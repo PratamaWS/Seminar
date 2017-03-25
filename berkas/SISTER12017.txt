@@ -1,0 +1,15 @@
+TUGAS SISTER S1 . SELASA 7 MARET 2017
+
+Membuat project java tentang penjumlahan dengan menggunakan socket TCP dengan alur sebagai berikut:
+-Pada client menginputkan 2 angka dan mengirimkannya ke server
+-Pada server menerima angka tersebut dan menjumlahkannya dan di hasilkan output penjumlahan.
+-Output penjumlahan pada server dikirimkan ke Client
+-Client Menerima output dari server dan menampilkannya di console
+
+tugas di kirim projectnya di rar dengan 
+format sister1_M0513032_Alpen
+
+dikirim di email sisters1ifuns@gmail.com
+dengan subject sister1_M05103032_Alpen
+
+maksimal hari senin jam 23.59

@@ -134,29 +134,37 @@ IF(ISSET($_SESSION['user'])){
           </div>
           <div class="form-group">
            <label>Kategori  </label>
-           <select  class="form-control" name="kategori">  
-            <option value="">Silahkan Pilih</option>  
-            <option value="In_tek">Inovasi Teknologi</option>  
-            <option value="In_ppk">Inovasi Pembelajaran Pendidikan Kejuruan</option>
-            <option value="In_ev">Inovasi Evaluasi</option>    
-          </select>  
-        </div> 
+           <!-- <select  class="form-control" name="kategori">  
+            <option value="">Silahkan Pilih</option>   -->
+            <?php
+              include 'connection.php';
+              $sql = "SELECT * FROM kategori ORDER BY kategori_nama";
+              $resultsql = mysqli_query($conn, $sql);
+              echo '<select name="kategori" class="form-control" data-style="btn-default" style="display:block; width:45%;"><option selected="true" disabled="disabled" value="">Silahkan Pilih Kategori</option>';
+              while( $row = mysqli_fetch_array($resultsql) ) {
+                $kategori = $row['kategori_nama'];
+                echo '<option value="'.$kategori.'" >'.$kategori.'</option>';
+              }
+              echo '</select>';
+            ?>
+          <!-- </select>   -->
+          </div> 
 
         <div class="form-group">
-          <label>Author 1<input type="text" class="form-control"  name="author1" required><input type="radio" name="author1abs" value="hadir" required>Hadir<input type="radio" name="author1abs" value="Tidak" required>Tidak</label>
+          <label>Author 1<input type="text" class="form-control"  name="author1" required><input type="radio" name="author1abs" value="hadir" checked="">Hadir<input type="radio" name="author1abs" value="Tidak" required>Tidak</label>
         </div> 
         <div class="form-group">  
-          <label>Author 2<input type="text" class="form-control" name="author2"><input type="radio" name="author2abs" value="hadir">Hadir<input type="radio" name="author2abs" value="Tidak">Tidak</label>
+          <label>Author 2<input type="text" class="form-control" name="author2" required=""><input type="radio" name="author2abs" value="hadir" checked="checked">Hadir<input type="radio" name="author2abs" value="Tidak">Tidak</label>
         </div> 
         <div class="form-group">
-          <label>Author 3<input type="text" class="form-control" name="author3"><input type="radio" name="author3abs" value="hadir">Hadir<input type="radio" name="author3abs" value="Tidak">Tidak</label>      
+          <label>Author 3<input type="text" class="form-control" name="author3"><input type="radio" name="author3abs" value="hadir">Hadir<input type="radio" name="author3abs" value="Tidak" checked="checked">Tidak</label>      
         </div>  
 
         <div class="form-group">
-          <label>Author 4<input type="text" class="form-control" name="author4"><input type="radio" name="author4abs" value="hadir">Hadir<input type="radio" name="author4abs" value="Tidak">Tidak</label>
+          <label>Author 4<input type="text" class="form-control" name="author4"><input type="radio" name="author4abs" value="hadir">Hadir<input type="radio" name="author4abs" value="Tidak" checked="checked">Tidak</label>
         </div>
         <div class="form-group">
-          <label>Author 5<input type="text"  class="form-control" name="author5"><input type="radio" name="author5abs" value="hadir">Hadir<input type="radio" name="author5abs" value="Tidak">Tidak</label>
+          <label>Author 5<input type="text"  class="form-control" name="author5"><input type="radio" name="author5abs" value="hadir">Hadir<input type="radio" name="author5abs" value="Tidak" checked="checked">Tidak</label>
         </div>
 
         <div class="box-footer">
