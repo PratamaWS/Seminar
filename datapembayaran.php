@@ -1,6 +1,6 @@
 <?php
 	include "koneksi.php";
-	$query=mysql_query("SELECT id_data, nama_aut, judul_abs, file_abs, status_lolos, status_bayar
+	$query=mysql_query("SELECT id_data, user, judul_abs, file_abs, status_lolos, status_bayar
 		FROM datauser WHERE status_bayar = 'Belum' AND status_lolos = 'Lolos'"); 
 	$data = array();
 	while($r = mysql_fetch_assoc($query)) {

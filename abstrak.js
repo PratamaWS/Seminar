@@ -14,8 +14,8 @@ $(document).ready( function (){
       "type": "POST"
     },
     "columns": [
-    { "data": "nama_aut" },
     { "data": "judul_abs" },
+    { "data": "user" },
     { "data": "status_lolos"},
    /* { "data": "status_bayar" },*/
     { "data": "download" , "orderable": false},

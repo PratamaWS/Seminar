@@ -91,12 +91,12 @@ IF(ISSET($_SESSION['user'])){
 <div class="content-wrapper">
   <section class="content-header">
     <h1>
-      Upload Abstrak
+      Kelola Abstrak
     </h1>
   </br>
   <ol class="breadcrumb">
     <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-    <li class="active">Upload Abstrak</li>
+    <li class="active">Kelola Abstrak</li>
   </ol>
 </section>
 <!-- Main content -->

@@ -15,7 +15,7 @@ $(document).ready( function ()
           "type": "POST"
         },
         "columns": [
-        { "data": "nama_aut" },
+        { "data": "user" },
         { "data": "judul_abs" },
         { "data": "status_bayar"},
        /* { "data": "status_bayar" },*/

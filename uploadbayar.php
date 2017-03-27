@@ -2,8 +2,8 @@
 
 require "connection.php";
 $tablename = "datauser";
-if(isset($_POST["upload"])){
-	$judul_abs = $_POST['judul_abs'];
+if(isset($_POST["uploadbayar"])){
+		$judul_abs = $_POST['judul_abs'];
 		/*$Caption = $_POST['Caption'];
 		$Kategori = $_POST['Kategori'];
 		$Tanggal_Agenda = $_POST['Tanggal_Agenda'];
@@ -45,12 +45,7 @@ if(isset($_POST["upload"])){
 				<?php				
 			}
 			else{
-				?>
-				<script>
-					alert ("Abstrak gagal diupload");
-					window.location.href='halaman_user.php';
-				</script>
-				<?php	
+				header("Location: xxx.php");
 			}
 		}
 }

@@ -1,4 +1,12 @@
-
+<?php
+  session_start();
+  if(isset($_SESSION['alert'])){
+    $alert = $_SESSION['alert'];
+  }
+  if(isset($_SESSION['alert2'])){
+    $alert2 = $_SESSION['alert2'];
+  }
+?>
 <html>
 <head>
     <meta charset="utf-8">
@@ -77,6 +85,22 @@
            <form method="post" action="daftar.php">
             <h2 class="tengah"><b>REGISTER </b></h2>
             <hr class="colorgraph">
+            <?php
+              if(isset($alert)){
+                ?>
+                <div class="alert alert-danger"><?php echo $alert; ?></div>
+                <?php
+              }else{
+                if(isset($alert2)){
+                  ?>
+                  <div class="alert alert-success"><?php echo $alert2; ?></div>
+                  <?php
+                }
+              } 
+              unset($_SESSION['alert']);
+              unset($_SESSION['alert2']);
+            ?>
+
             <div class="form-group has-feedback">
              <input type="text" class="form-control input-lg" name="email" required id="email" placeholder="Alamat e-mail" tabindex="4"/>
              <span class="fa fa-envelope form-control-feedback"></span>
@@ -145,31 +169,3 @@
 
 </body>
 </html>
-<?php
-include "koneksi.php";
-IF(ISSET($_POST['login'])){
-  $username = $_POST['username'];
-  $password = $_POST['password'];
-  
-  $cek = mysql_num_rows(mysql_query("SELECT * FROM user WHERE user_name='$username' AND user_password='$password'"));
-  $data = mysql_fetch_array(mysql_query("SELECT * FROM user WHERE user_name='$username' AND user_password='$password'"));
-  IF($cek > 0)
-  {
-    session_start();
-    $user= $data['user_name'];
-    $_SESSION['user'] = $user;
-    $sql = "SELECT user_status FROM user WHERE user_name = '$user' ";
-    $resultsql = mysql_query( $sql);
-    $result = mysql_fetch_assoc($resultsql);
-    if($result['user_status'] == 1){      
-      $_SESSION['role'] = "admin";
-      echo "<script language=\"javascript\">alert(\"Selamat Datang\");document.location.href='homeadmin.php';</script>";
-    } else if($result['user_status'] == 2){     
-      $_SESSION['role'] = "user";
-      header("location:halaman_user.php");
-    }
-  }else{
-    echo "<script language=\"javascript\">alert(\"Password atau Username Salah !!!\");document.location.href='login.php';</script>";
-  }
-}
-?>

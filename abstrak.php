@@ -115,8 +115,8 @@ IF(ISSET($_SESSION['user'])){
                   <table id="table_abs" class="table table-bordered table-striped">
                     <thead>
                       <tr>
-                        <th style="width:20%">Nama</th>
                         <th style="width:20%">Judul</th>
+                        <th style="width:20%">User</th>                 
                         <th style="width:15%">Status Lolos</th>
                         <th style="width:8%">File</th>
                         <th style="width:8%">Loloskan </th>

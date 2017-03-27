@@ -1,7 +1,7 @@
 <?php
 	include "koneksi.php";
-	$query=mysql_query("SELECT id_data, nama_aut, judul_abs, file_abs, status_lolos
-		FROM datauser WHERE status_lolos = 'Tidak'"); 
+	$query=mysql_query("SELECT id_data,user, judul_abs, file_abs, status_lolos
+		FROM datauser WHERE status_lolos = 'Belum diverifikasi'"); 
 	$data = array();
 	while($r = mysql_fetch_assoc($query)) {
 		$data[] = $r;

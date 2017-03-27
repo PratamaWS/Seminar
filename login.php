@@ -1,5 +1,42 @@
 <?php
+session_start();
 require('connection.php');
+include "koneksi.php";
+
+include_once 'securimage/securimage.php';
+
+IF(ISSET($_POST['login'])){
+  $securimage = new Securimage();
+
+  if ($securimage->check($_POST['captcha_code'])==false){
+    $alert = "Kode captcha tidak tepat";
+  }
+  else{
+    $username = mysql_escape_string($_POST['username']);
+    $password = mysql_escape_string($_POST['password']);
+    
+    $cek = mysql_num_rows(mysql_query("SELECT * FROM user WHERE user_name='$username' AND user_password='$password'"));
+    $data = mysql_fetch_array(mysql_query("SELECT * FROM user WHERE user_name='$username' AND user_password='$password'"));
+    IF($cek > 0)
+    {
+      $user= $data['user_name'];
+      $_SESSION['user'] = $user;
+      $sql = "SELECT user_status FROM user WHERE user_name = '$user' ";
+      $resultsql = mysql_query( $sql);
+      $result = mysql_fetch_assoc($resultsql);
+      if($result['user_status'] == 1){      
+        $_SESSION['role'] = "admin";  
+        header("location: homeadmin.php");
+      } else if($result['user_status'] == 2){     
+        $_SESSION['role'] = "user";
+        header("location: halaman_user.php");      
+      }
+    }else{
+      $alert = 'Username atau Password Salah!';
+    }
+  }
+  
+}
 ?>
 <head>
   <meta charset="utf-8">
@@ -67,16 +104,17 @@ require('connection.php');
           <div class="box-body">
 
           <div class="col-xs-12 col-sm-12 col-md-10 col-sm-offset-2 col-md-offset-1">
-           <?php
-           if(isset($pesan)){
-            ?>
-            <div class="alert alert-danger">Username atau Password Salah!</div>
-            <?php
-          }
-          ?>
           <form action="login.php" method="POST">
             <h2 class="tengah"><b>LOGIN USER</b></h2>
             <hr class="colorgraph">
+            <?php
+             if(isset($alert)){
+              ?>
+              <div class="alert alert-danger"><?php echo $alert; ?></div>
+              <?php
+            }
+               unset($_SESSION['alert']);
+            ?>
             <div class="form-group has-feedback">
                <input type="text" class="form-control input-lg" name="username" id="username" required placeholder="Username" tabindex="4"/>
                <span class="fa fa-user form-control-feedback"></span>
@@ -87,10 +125,6 @@ require('connection.php');
             </div>
             <div class="row">
               <div class="col-xs-2 col-sm-3 col-md-3">
-              <!-- span class="button-checkbox">
-                <button type="button" class="btn" data-color="info" tabindex="7">Remember me</button>
-                            <input type="checkbox" name="t_and_c" id="t_and_c" class="hidden" value="1">
-                          </span> -->
                 <input type="hidden" name="token" value="MyFormPage">
                 <img id="captcha" src="securimage/securimage_show.php" alt="chaptcha image"/>
                 <br/>        
@@ -136,49 +170,4 @@ require('connection.php');
 <!-- AdminLTE App -->
 <script src="dist/js/app.min.js"></script>
 </body>
-<?php
-include "koneksi.php";
-include_once 'securimage/securimage.php';
-
-IF(ISSET($_POST['login'])){
-  $securimage = new Securimage();
-
-  if ($securimage->check($_POST['captcha_code'])==false){
-    ?>
-      <script type="text/javascript">
-        alert ("Kode Captcha Tidak Tepat!");
-        document.location.href='javascript:history.go(-1)';
-      </script>
-    <?php
-    /*echo "<a href='javascript:history.go(-1)'> Try Again</a>.";*/
-    exit;
-  }
-  $username = $_POST['username'];
-  $password = $_POST['password'];
-  
-  $cek = mysql_num_rows(mysql_query("SELECT * FROM user WHERE user_name='$username' AND user_password='$password'"));
-  $data = mysql_fetch_array(mysql_query("SELECT * FROM user WHERE user_name='$username' AND user_password='$password'"));
-  IF($cek > 0)
-  {
-    if(!isset($_SESSION)){ 
-        session_start(); 
-    } 
-    $user= $data['user_name'];
-    $_SESSION['user'] = $user;
-    $sql = "SELECT user_status FROM user WHERE user_name = '$user' ";
-    $resultsql = mysql_query( $sql);
-    $result = mysql_fetch_assoc($resultsql);
-    if($result['user_status'] == 1){      
-      $_SESSION['role'] = "admin";
-      /*header("location:homeadmin.php");*/
-      echo "<script language=\"javascript\">alert('Welcome Admin');document.location.href='homeadmin.php';</script>";
-    } else if($result['user_status'] == 2){     
-      $_SESSION['role'] = "user";
-     echo "<script language=\"javascript\">alert('Login Sukses');document.location.href='halaman_user.php';</script>";
-    }
-  }else{
-    echo "<script language=\"javascript\">alert(\"Password atau Username Salah !!!\");document.location.href='login.php';</script>";
-  }
-}
-?>
-
+</html>
