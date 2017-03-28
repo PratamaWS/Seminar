@@ -1,0 +1,203 @@
+-- phpMyAdmin SQL Dump
+-- version 4.0.4.1
+-- http://www.phpmyadmin.net
+--
+-- Inang: 127.0.0.1
+-- Waktu pembuatan: 26 Mar 2017 pada 12.34
+-- Versi Server: 5.6.11
+-- Versi PHP: 5.5.1
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+--
+-- Basis data: `seminar`
+--
+CREATE DATABASE IF NOT EXISTS `seminar` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `seminar`;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `admin`
+--
+
+CREATE TABLE IF NOT EXISTS `admin` (
+  `id` int(20) NOT NULL AUTO_INCREMENT,
+  `username` varchar(20) NOT NULL,
+  `password` varchar(20) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data untuk tabel `admin`
+--
+
+INSERT INTO `admin` (`id`, `username`, `password`, `email`) VALUES
+(1, 'admin', 'admin', 'Yeye@gmail.com'),
+(2, 'nuk', 'man', 'sinuk@gmail.com');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `berita`
+--
+
+CREATE TABLE IF NOT EXISTS `berita` (
+  `berita_judul` varchar(50) NOT NULL,
+  `berita_isi` text NOT NULL,
+  `berita_tanggal` varchar(25) NOT NULL,
+  `berita_id` int(20) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`berita_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=36 ;
+
+--
+-- Dumping data untuk tabel `berita`
+--
+
+INSERT INTO `berita` (`berita_judul`, `berita_isi`, `berita_tanggal`, `berita_id`) VALUES
+('fdscx', 'wfdscx', '2017-03-10', 8),
+('d', 'd', '2017-03-07', 19),
+('a', 'a', '2017-03-10', 23),
+('s', 's', '2017-03-10', 24),
+('a', 'a', '2017-03-10', 25),
+('s', 's', '2017-03-10', 29),
+('s', 's', '2017-03-10', 30),
+('Hari ini hari yang cerah', 'CERAHHH SEKALI BOS', '', 31),
+('Hari ini hari yang cerah', 'CERAHHH SEKALI BOS SAKING CERAHNYA SAYA HARUS MEMAKAI KACAMATA BERWARNA HITAM UNTUK BERJALAN DARI RUMAH MENUJU KANTOR GUNA MENYELESAIKAN PEKERJAAN YANG MAKIN HARI MAKIN MENUMPU DAN TAK KUNJUNG REDA. UGH', '', 32),
+('KEKUATAN DARI DALAM', 'Semua kekuatan ini berasal dari dalam diri yang tidak diketahui siapapun kecuali saya seorang diri yang mendapatkan kekuatan ini sejak saya lahir di dunia ini beberapa tahun yang lalu dimana saya mungkin melupakannya karena tidak ada seorangpun yang mengingatkan saya akah hal itu', '2017-03-11 01:46:23', 33),
+('SINGO', 'SINGO GONDRONG', '2017-03-15', 34),
+('FINAL', 'FINAL NYA', '2017-03-17', 35);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `datauser`
+--
+
+CREATE TABLE IF NOT EXISTS `datauser` (
+  `id_data` int(20) NOT NULL AUTO_INCREMENT,
+  `nama_aut` varchar(60) NOT NULL,
+  `judul_abs` varchar(60) NOT NULL,
+  `file_abs` varchar(60) NOT NULL,
+  `keyword` varchar(50) NOT NULL,
+  `kategori` varchar(50) NOT NULL,
+  `author1` varchar(50) NOT NULL,
+  `author1abs` varchar(20) NOT NULL,
+  `author2` varchar(50) NOT NULL,
+  `author2abs` varchar(20) NOT NULL,
+  `author3` varchar(50) NOT NULL,
+  `author3abs` varchar(20) NOT NULL,
+  `author4` varchar(50) NOT NULL,
+  `author4abs` varchar(20) NOT NULL,
+  `author5` varchar(50) NOT NULL,
+  `author5abs` varchar(20) NOT NULL,
+  `tanggal_ditambahkan` datetime NOT NULL,
+  `status_lolos` varchar(50) NOT NULL,
+  `status_bayar` varchar(11) NOT NULL,
+  `file_mak` varchar(200) NOT NULL,
+  `status_mak` varchar(30) NOT NULL,
+  PRIMARY KEY (`id_data`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=35 ;
+
+--
+-- Dumping data untuk tabel `datauser`
+--
+
+INSERT INTO `datauser` (`id_data`, `nama_aut`, `judul_abs`, `file_abs`, `keyword`, `kategori`, `author1`, `author1abs`, `author2`, `author2abs`, `author3`, `author3abs`, `author4`, `author4abs`, `author5`, `author5abs`, `tanggal_ditambahkan`, `status_lolos`, `status_bayar`, `file_mak`, `status_mak`) VALUES
+(1, '', 'tt', '0MTF02168.pdf', '', '', '', '', '', '', '', '', '', '', '', '', '0000-00-00 00:00:00', 'Lolos', '0', '', ''),
+(2, '', 'saasx', 'Thema.docx', '', '', '', '', '', '', '', '', '', '', '', '', '0000-00-00 00:00:00', 'Lolos', 'sasas', '', ''),
+(3, '', 'das', '0MTF02168.pdf 	', '', '', '', '', '', '', '', '', '', '', '', '', '0000-00-00 00:00:00', 'Lolos', 'sas', '', ''),
+(4, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0000-00-00 00:00:00', 'Lolos', '', '', ''),
+(5, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0000-00-00 00:00:00', 'Lolos', '', '', ''),
+(6, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0000-00-00 00:00:00', 'Lolos', '', '', ''),
+(19, '', 'kjshdk', 'Surat pernyataan.docx', 'askdjasld', 'In_tek', 'askdlkas', 'Tidak', 'askd', 'Tidak', 'asdsakdj', 'Tidak', 'askdjlk', 'Tidak', 'askdjlk', 'hadir', '2017-03-10 00:00:00', 'Belum diverifikasi', '', '', ''),
+(20, '', 'askdj', 'aktif kul. dana kasih.docx', 'asjldkj', 'In_tek', 'aklsjdl', 'Tidak', 'dlkas;', 'Tidak', 'dskjdk', 'Tidak', 'asdkjl', 'Tidak', 'asdkj', 'Tidak', '2017-03-10 00:00:00', 'Belum diverifikasi', '', '', ''),
+(21, '', 'aksldj', 'WhatsApp Image 2016-11-14 at 6.57.51 AM.jpeg', 'aksdjasl', 'In_tek', 'asmdlas', 'Tidak', 'as.dl', 'Tidak', 'asldkl', 'Tidak', 'asl;sad', 'hadir', 'askd;laskd', 'Tidak', '2017-03-10 00:00:00', 'Belum diverifikasi', '', '', ''),
+(22, '', 'aksldj', 'WhatsApp Image 2016-11-14 at 6.57.51 AM.jpeg', 'aksdjasl', 'In_tek', 'asmdlas', 'Tidak', 'as.dl', 'Tidak', 'asldkl', 'Tidak', 'asl;sad', 'hadir', 'askd;laskd', 'Tidak', '2017-03-10 00:00:00', 'Belum diverifikasi', '', '', ''),
+(23, '', 'askld', 'WhatsApp Image 2016-11-14 at 6.58.01 AM.jpeg', 'aslkasl;', '', 'l;ask', '', '', '', '', '', '', '', '', '', '2017-03-10 00:00:00', 'Belum diverifikasi', '', '', ''),
+(24, '', 'a,jskl', 'WhatsApp Image 2016-11-14 at 6.57.51 AM.jpeg', 'as,a,s', '', '', '', '', '', '', '', '', '', '', '', '2017-03-10 00:00:00', 'Belum diverifikasi', '', '', ''),
+(25, '', '', 'aktif kul. dana kasih.docx', '', '', '', '', '', '', '', '', '', '', '', '', '2017-03-10 00:00:00', 'Belum diverifikasi', '', '', ''),
+(26, '', '', 'Surat pernyataan.docx', '', '', '', '', '', '', '', '', '', '', '', '', '2017-03-10 00:00:00', 'Belum diverifikasi', '', '', ''),
+(27, '', '', 'aktif kul. dana kasih.docx', '', '', '', '', '', '', '', '', '', '', '', '', '2017-03-10 00:00:00', 'Belum diverifikasi', '', '', ''),
+(28, '', '', 'Surat pernyataan.docx', '', '', '', '', '', '', '', '', '', '', '', '', '2017-03-10 00:00:00', 'Belum diverifikasi', '', '', ''),
+(29, '', 'Kekuatan dari dalam', 'seminar.txt', 'Kekuatan', 'Inovasi Evaluasi', 'asdsadas', 'Tidak', 'asdasd', '', '', '', '', '', '', '', '2017-03-25 00:00:00', 'Belum diverifikasi', '', '', ''),
+(30, '', 'sadsa', 'SISTER12017.txt', 'sad', 'Inovasi Pembelajaran Pendidikan Kejuruan', 'sadsa', 'hadir', '', '', '', '', '', '', '', '', '2017-03-25 00:00:00', 'Belum diverifikasi', '', '', ''),
+(31, '', 'asdas', 'SISTER12017.txt', 'asdas', 'Inovasi Pembelajaran Pendidikan Kejuruan', 'asdas', 'Tidak', 'asdas', 'Tidak', '', 'hadir', '', 'hadir', '', 'hadir', '2017-03-25 00:00:00', 'Belum diverifikasi', '', '', ''),
+(32, '', 'asdsa', 'SISTER12017.txt', 'sadsad', 'Inovasi Pembelajaran Pendidikan Kejuruan', 'asdsadasasdsad', 'hadir', 'sadas', 'hadir', '-sadasdasdsada', 'Tidak', '-', 'Tidak', '-', 'Tidak', '2017-03-25 00:00:00', 'Belum diverifikasi', '', '', ''),
+(33, '', 'asdas', 'seminar.txt', 'sadsad', 'Inovasi Teknologi', 'sad', 'hadir', 'adsa', 'hadir', '', 'Tidak', '', 'Tidak', '', 'Tidak', '2017-03-25 00:00:00', 'Belum diverifikasi', '', '', ''),
+(34, '', 'hkjhk', 'datauser.sql', 'khk', 'Inovasi Pembelajaran Pendidikan Kejuruan', 'jkhkj', 'hadir', 'jhkhk', 'hadir', '', 'Tidak', '', 'Tidak', '', 'Tidak', '2017-03-25 00:00:00', 'Belum diverifikasi', '', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `kategori`
+--
+
+CREATE TABLE IF NOT EXISTS `kategori` (
+  `kategori_id` int(5) NOT NULL AUTO_INCREMENT,
+  `kategori_nama` varchar(100) NOT NULL,
+  PRIMARY KEY (`kategori_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Dumping data untuk tabel `kategori`
+--
+
+INSERT INTO `kategori` (`kategori_id`, `kategori_nama`) VALUES
+(1, 'Inovasi Teknologi'),
+(3, 'Inovasi Pembelajaran Pendidikan Kejuruan'),
+(4, 'Inovasi Evaluasi');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `makalah`
+--
+
+CREATE TABLE IF NOT EXISTS `makalah` (
+  `makalah_id` int(20) NOT NULL,
+  `makalah_abstrak_file` varchar(20) NOT NULL,
+  `makalah_file` varchar(20) NOT NULL,
+  `makalah_status` varchar(20) NOT NULL,
+  `makalah_create_date` datetime(6) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `user`
+--
+
+CREATE TABLE IF NOT EXISTS `user` (
+  `user_id` int(20) NOT NULL AUTO_INCREMENT,
+  `user_name` varchar(60) DEFAULT NULL,
+  `user_email` varchar(40) DEFAULT NULL,
+  `user_password` varchar(30) DEFAULT NULL,
+  `user_create_date` datetime(6) NOT NULL,
+  `user_status` varchar(30) NOT NULL,
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+
+--
+-- Dumping data untuk tabel `user`
+--
+
+INSERT INTO `user` (`user_id`, `user_name`, `user_email`, `user_password`, `user_create_date`, `user_status`) VALUES
+(1, 'sinuk', 'sinuk@gmail.com', 'sinuk', '2017-03-10 23:26:16.000000', '2'),
+(2, 'sim', 'siman@gmail.com', 'man', '2017-03-10 23:30:47.000000', '2'),
+(3, 'admin', 'admin@gmail.com', 'admin', '0000-00-00 00:00:00.000000', '1'),
+(4, 'juan', 'juanvindiyanto@gmail.com', 'juan', '2017-03-20 23:14:27.000000', '2'),
+(5, 'ju', 'juanvindiyanto@gmail.com', 'an', '2017-03-23 20:45:16.000000', '2'),
+(6, 'hoho', 'laskjdl@mgasd.clom', 'hoho', '2017-03-23 20:45:55.000000', '2');
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

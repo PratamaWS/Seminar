@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <?php 
 session_start();
+if(isset($_SESSION['alert'])){
+    $alert = $_SESSION['alert'];
+}
 IF(ISSET($_SESSION['user'])){
   ?>
   <html>
@@ -68,7 +71,7 @@ IF(ISSET($_SESSION['user'])){
     </br>
     <ul class="sidebar-menu">
       <li class="header">MENU</li>
-      <li class="active treeview">
+      <li class="treeview">
         <a href="halaman_user.php">
           <i class="fa fa-files-o"></i> <span>Upload Abstrak</span>
         </a>
@@ -79,9 +82,9 @@ IF(ISSET($_SESSION['user'])){
           <span>Upload Bukti Pembayaran</span>
         </a>
       </li>
-      <li class="treeview">
+      <li class="active treeview">
         <a href="kelolamakalah.php">
-          <i class="fa fa-book"></i> <span>Kelola Makalah</span>
+          <i class="fa fa-book"></i> <span>Upload Makalah</span>
         </a>
       </li>
     </ul>
@@ -91,12 +94,12 @@ IF(ISSET($_SESSION['user'])){
 <div class="content-wrapper">
   <section class="content-header">
     <h1>
-      Kelola Abstrak
+      Upload Makalah
     </h1>
   </br>
   <ol class="breadcrumb">
     <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-    <li class="active">Kelola Abstrak</li>
+    <li class="active">Upload Makalah</li>
   </ol>
 </section>
 <!-- Main content -->
@@ -107,62 +110,26 @@ IF(ISSET($_SESSION['user'])){
    <div class="col-xs-8">
      <div class="box box-primary">
       <div class="box-header with-border">
-        <h3 class="box-title">Form Data Abstrak</h3>
+        <h3 class="box-title">Form Upload Makalah</h3>
       </div><!-- /.box-header -->
+      <?php
+       if(isset($alert)){
+        ?>
+        <div class="alert alert-success"><?php echo $alert; ?></div>
+        <?php
+      }
+         unset($_SESSION['alert']);
+      ?>
       <!-- form start -->
-      <form role="form" action = "upload.php" method = "post" enctype="multipart/form-data">
-
+      <form role="form" action = "uploadmakalah.php" method = "post" enctype="multipart/form-data">
         <div class="box-body">
           <div class="form-group">
-            <label >Judul</label>
-            <input type="text" class="form-control" name="judul_abs" required placeholder="Judul">
+            <label >Makalah</label>
+            <input type="file" name="makalah" required >
+            <p class="help-block">*maksimal ukuran abstrak xKb</p>
           </div>
-          <div class="form-group">
-            <label >Abstrak</label>
-            <input type="file" name="berkas" required >
-            <p class="help-block">*maksimal ukuran abstrak 500Kb</p>
-          </div>
-          <div class="form-group">
-            <label >Keyword</label>
-            <input type="text" class="form-control" name="keyword" required  placeholder="Keyword">
-          </div>
-          <div class="form-group">
-           <label>Kategori  </label>
-           <!-- <select  class="form-control" name="kategori">  
-            <option value="">Silahkan Pilih</option>   -->
-            <?php
-              include 'connection.php';
-              $sql = "SELECT * FROM kategori ORDER BY kategori_nama";
-              $resultsql = mysqli_query($conn, $sql);
-              echo '<select name="kategori" class="form-control" data-style="btn-default" style="display:block; width:45%;"><option selected="true" disabled="disabled" value="">Silahkan Pilih Kategori</option>';
-              while( $row = mysqli_fetch_array($resultsql) ) {
-                $kategori = $row['kategori_nama'];
-                echo '<option value="'.$kategori.'" >'.$kategori.'</option>';
-              }
-              echo '</select>';
-            ?>
-          <!-- </select>   -->
-          </div> 
-
-        <div class="form-group">
-          <label>Author 1<input type="text" class="form-control"  name="author1" required><input type="radio" name="author1abs" value="hadir" checked="">Hadir<input type="radio" name="author1abs" value="Tidak" required>Tidak</label>
-        </div> 
-        <div class="form-group">  
-          <label>Author 2<input type="text" class="form-control" name="author2" required=""><input type="radio" name="author2abs" value="hadir" checked="checked">Hadir<input type="radio" name="author2abs" value="Tidak">Tidak</label>
-        </div> 
-        <div class="form-group">.
-          <label>Author 3<input type="text" class="form-control" name="author3"><input type="radio" name="author3abs" value="hadir">Hadir<input type="radio" name="author3abs" value="Tidak" checked="checked">Tidak</label>      
-        </div>  
-
-        <div class="form-group">
-          <label>Author 4<input type="text" class="form-control" name="author4"><input type="radio" name="author4abs" value="hadir">Hadir<input type="radio" name="author4abs" value="Tidak" checked="checked">Tidak</label>
-        </div>
-        <div class="form-group">
-          <label>Author 5<input type="text"  class="form-control" name="author5"><input type="radio" name="author5abs" value="hadir">Hadir<input type="radio" name="author5abs" value="Tidak" checked="checked">Tidak</label>
-        </div>
-
         <div class="box-footer">
-          <button type="submit" name="upload" class="btn btn-primary btn-flat">Submit</button>
+          <button type="submit" name="uploadmakalah" class="btn btn-primary btn-flat">Submit</button>
         </div>
       </form>
     </div> 

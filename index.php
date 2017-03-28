@@ -78,17 +78,16 @@ require('connection.php');
            <a href="index.php" class="navbar-brand"></a>
            <ul class="nav navbar-nav">
             <li class="active"><a href="index.php"><b>Home </b><span class="sr-only">(current)</span><i class="fa fa-home"></i></a></li>
-            <li><a href="#">Link</a></li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
+                <li><a href="login.php">Login</a></li>
+                <li><a href="halaman_register.php">Register</a></li>
+                <!-- <li><a href="#">Something else here</a></li>
                 <li class="divider"></li>
                 <li><a href="#">Separated link</a></li>
                 <li class="divider"></li>
-                <li><a href="#">One more separated link</a></li>
+                <li><a href="#">One more separated link</a></li> -->
               </ul>
             </li>
           </ul>
@@ -120,9 +119,15 @@ require('connection.php');
              <?php
              $sql = "SELECT * FROM berita WHERE berita_judul LIKE '%$q%' ORDER BY berita_judul";
              $resultsql = mysqli_query($conn, $sql);
+             //echo $sql;
              /*$no = 1+$posisi;*/
-             $jumlah = mysqli_num_rows($resultsql);
-             if ($jumlah<1) {
+             if(!is_bool($resultsql)){
+              $jumlah = mysqli_num_rows($resultsql);
+             } else {
+              $jumlah = null;
+             }
+             
+             if ($jumlah < 1){
               ?>
               <script>
                 $('#paging2').hide();

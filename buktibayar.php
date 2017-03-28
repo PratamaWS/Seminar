@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <?php 
 session_start();
+if(isset($_SESSION['alert'])){
+    $alert = $_SESSION['alert'];
+}
 IF(ISSET($_SESSION['user'])){
   ?>
   <html>
@@ -109,13 +112,21 @@ IF(ISSET($_SESSION['user'])){
       <div class="box-header with-border">
         <h3 class="box-title">Form Upload Bukti Pembayaran</h3>
       </div><!-- /.box-header -->
+      <?php
+       if(isset($alert)){
+        ?>
+        <div class="alert alert-success"><?php echo $alert; ?></div>
+        <?php
+      }
+         unset($_SESSION['alert']);
+      ?>
       <!-- form start -->
       <form role="form" action = "uploadbayar.php" method = "post" enctype="multipart/form-data">
 
         <div class="box-body">
           <div class="form-group">
             <label >Upload Foto Bukti Pembayaran</label>
-            <input type="file" name="berkas" required >
+            <input type="file" name="bayar" required>
             <p class="help-block">*maksimal ukuran foto 500Kb</p>
           </div>
         <div class="box-footer">

@@ -71,18 +71,12 @@ IF(ISSET($_POST['login'])){
           <div class="collapse navbar-collapse pull-right" id="navbar-collapse">
            <a href="index.html" class="navbar-brand"></a>
            <ul class="nav navbar-nav">
-            <li class="active"><a href="index.php"><b>Home </b><span class="sr-only">(current)</span><i class="fa fa-home"></i></a></li>
-            <li><a href="#">Link</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
+            <li><a href="index.php"><b>Home </b><span class="sr-only">(current)</span><i class="fa fa-home"></i></a></li>
+            <li class="dropdown active">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li class="divider"></li>
-                <li><a href="#">Separated link</a></li>
-                <li class="divider"></li>
-                <li><a href="#">One more separated link</a></li>
+                <li><a href="login.php">Login</a></li>
+                <li><a href="halaman_register.php">Register</a></li>
               </ul>
             </li>
           </ul>

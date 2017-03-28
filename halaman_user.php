@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <?php 
 session_start();
+if(isset($_SESSION['alert'])){
+    $alert = $_SESSION['alert'];
+}
 IF(ISSET($_SESSION['user'])){
   ?>
   <html>
@@ -109,6 +112,14 @@ IF(ISSET($_SESSION['user'])){
       <div class="box-header with-border">
         <h3 class="box-title">Form Data Abstrak</h3>
       </div><!-- /.box-header -->
+      <?php
+       if(isset($alert)){
+        ?>
+        <div class="alert alert-danger"><?php echo $alert; ?></div>
+        <?php
+      }
+         unset($_SESSION['alert']);
+      ?>
       <!-- form start -->
       <form role="form" action = "upload.php" method = "post" enctype="multipart/form-data">
 
