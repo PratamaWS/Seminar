@@ -21,7 +21,7 @@ if(isset($_POST["upload"])){
 		*/
 		$file_abs = $_FILES["berkas"]["name"];
 		$filetmp = $_FILES["berkas"]['tmp_name'];
-		$filepath = "berkas/".$file_abs;
+		$filepath = "uploads/abstrak/".$file_abs;
 		$keyword = $_POST['keyword'];
 		$kategori = $_POST['kategori'];
 		$author1 = $_POST['author1'];

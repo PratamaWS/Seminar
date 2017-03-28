@@ -98,11 +98,16 @@ require('koneksi.php');
       </a>
     </li>
     <li class="treeview">
+      <a href="makalah.php">
+        <i class="fa fa-book"></i> <span>Kelola makalah</span>
+      </a>
+    </li>
+    <li class="treeview">
       <a href="berita.php">
         <i class="fa fa-bullhorn"></i>
         <span>Berita</span>
       </a>
-    </li>
+    </li>  
   </ul>
 </section>
 </aside>

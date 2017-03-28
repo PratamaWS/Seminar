@@ -89,6 +89,11 @@ IF(ISSET($_SESSION['user'])){
                 <i class="fa fa-list"></i> <span>Kelola Kategori</span>
               </a>
             </li>
+            <li class="treeview">
+              <a href="makalah.php">
+                <i class="fa fa-book"></i> <span>Kelola makalah</span>
+              </a>
+            </li>
             <li class="active treeview">
               <a href="berita.php">
                 <i class="fa fa-bullhorn"></i>

@@ -6,7 +6,7 @@ if(isset($_POST["uploadmakalah"])){
 	$user = $_SESSION['user'];
 	$file_mak = $_FILES["makalah"]["name"];
 	$filetmp = $_FILES["makalah"]['tmp_name'];
-	$filepath = "makalah/".$file_mak;	
+	$filepath = "uploads/makalah/".$file_mak;	
 	if(move_uploaded_file($filetmp, $filepath)){
 		$sql = "UPDATE $tablename SET file_mak='$file_mak', tanggal_mak = NOW() WHERE user = '$user' ";
 		$query = mysqli_query($conn, $sql);

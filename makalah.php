@@ -69,7 +69,7 @@ IF(ISSET($_SESSION['user'])){
                 <i class="fa fa-dashboard"></i><span>Dashboard</span>
               </a>
             </li>
-            <li class="active treeview">
+            <li class="treeview">
               <a href="abstrak.php">
                 <i class="fa fa-files-o"></i>
                 <span>Kelola Abstrak</span>
@@ -85,7 +85,7 @@ IF(ISSET($_SESSION['user'])){
                 <i class="fa fa-th"></i> <span>Kelola Kategori</span>
               </a>
             </li>
-            <li class="treeview">
+            <li class="active treeview">
               <a href="makalah.php">
                 <i class="fa fa-book"></i> <span>Kelola makalah</span>
               </a>
@@ -103,12 +103,12 @@ IF(ISSET($_SESSION['user'])){
       <div class="content-wrapper">
         <section class="content-header">
           <h1>
-            Data Abstrak
+            Data Makalah
           </h1>
         </br>
         <ol class="breadcrumb">
           <li><a href="index.php"><i class="fa fa-dashboard"></i> Home</a></li>
-          <li class="active">Kelola Abstrak</li>
+          <li class="active">Kelola Makalah</li>
         </ol>
         </section>
         <section class="content">
@@ -117,12 +117,10 @@ IF(ISSET($_SESSION['user'])){
               <div class="box">
                 </br>
                 <div class="box-body">
-                  <table id="table_abs" class="table table-bordered table-striped">
+                  <table id="table_mak" class="table table-bordered table-striped">
                     <thead>
                       <tr>
-                        <th style="width:20%">Judul</th>
                         <th style="width:20%">User</th>                 
-                        <th style="width:15%">Status Lolos</th>
                         <th style="width:8%">File</th>
                         <th style="width:8%">Loloskan </th>
                       </tr>
@@ -145,7 +143,7 @@ IF(ISSET($_SESSION['user'])){
     <script src="plugins/fastclick/fastclick.min.js"></script>
     <script src="dist/js/app.min.js"></script>
     <script src="plugins/sweetalert/sweetalert.min.js"></script>
-    <script src="abstrak.js"></script>
+    <script src="makalah.js"></script>
     <script src="plugins/bootstrap-notify/bootstrap-notify.min.js"></script>
   </body>
 </html>
