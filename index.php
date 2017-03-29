@@ -20,6 +20,7 @@ require('connection.php');
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
+    <link rel="shortcut icon" href="dist/img/favicon.ico">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -151,13 +152,11 @@ require('connection.php');
                     <span class='description '>Post by Admin  on  <i class="fa fa-calendar"></i><b>  <?=$data['berita_tanggal'];?></b> </span></div>
                     <div class='box-body kirikanan'>
                       <!-- post text -->
-                      <p><?=substr($data['berita_isi'],0,300);?></p>
-                      <!-- Attachment -->
-                      <div class="attachment-block clearfix">
-                        <!-- <img class="attachment-img" src="<?=$hasil_data['gambar'];?>" alt="image"> -->
-                        <div class="attachment-pushed">
-                        </div><!-- /.attachment-pushed -->
+                       <div class="clearfix tengah">
+                        <img class="tengah" src="<?php echo 'uploads/berita/'.$data['image'];?>" alt="" width="50%">
                       </div><!-- /.attachment-block -->
+                       </br>
+                      <p><?=substr($data['berita_isi'],0,150);?></p>
                     </br>
                     <a class="btn btn-primary btn-flat btn-sm" href="halaman_readmore.php?&id=<?=$data['berita_id'];?>">Read more</a>  
                   </div><!-- /.box-body -->

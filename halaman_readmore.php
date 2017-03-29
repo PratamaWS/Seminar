@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Detail Berita</title>
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+      <link rel="shortcut icon" href="dist/img/favicon.ico">
   <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
@@ -72,6 +73,7 @@
     							$judul_berita  = $hasil_data['berita_judul'];
     							$isi_berita    = $hasil_data['berita_isi'];
     							$tgl    		= $hasil_data['berita_tanggal'];
+                  $gambar       = $hasil_data['image'];
   							?>  
                 <div class="box box-widget">
                   <div class='box-header with-border bg-gray disabled color-palette'>
@@ -81,6 +83,10 @@
                     <span class='description '>Post by Admin  on <i class="fa fa-calendar"></i><b> <?=$hasil_data['berita_tanggal'];?></b>
                     </span>
                   </div>
+                </br>
+                  <div class='box-body tengah'>
+                     <img class="tengah" src="<?php echo 'uploads/berita/'.$hasil_data['image'];?>" alt="" width="80%">
+                  </div><!-- /.box-body -->
                   <div class='box-body kirikanan'>
                  		<p>					
     									<?php echo ($isi_berita);?>
