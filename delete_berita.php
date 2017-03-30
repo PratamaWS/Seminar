@@ -1,13 +1,30 @@
 <?php
-	include "koneksi.php";
-	$berita_id = $_POST['berita_id'];
-	mysql_query("delete from berita where berita_id=$berita_id");
-	if(mysql_error()){
-		$result['error']=mysql_error();
-		$result['result']=0;
-	}else{
-		$result['error']='';
-		$result['result']=1;
+
+include('db.php');
+include("function.php");
+
+if(isset($_POST["berita_id"]))
+{
+	$image = get_image_name($_POST["berita_id"]);
+	if($image != '')
+	{
+		unlink("uploads/berita/" . $image);
 	}
-	echo json_encode($result);
+	$statement = $connection->prepare(
+		"DELETE FROM berita WHERE berita_id = :berita_id"
+	);
+	$result = $statement->execute(
+		array(
+			':berita_id'	=>	$_POST["berita_id"]
+		)
+	);
+	
+	if(!empty($result))
+	{
+		echo 'Data Deleted';
+	}
+}
+
+
+
 ?>
