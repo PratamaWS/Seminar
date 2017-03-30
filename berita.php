@@ -24,13 +24,6 @@ IF(ISSET($_SESSION['user'])){
     <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="dist/css/skin-blue-light.min.css">
     <link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
-
-  	<script src="plugins/jQuery/jQuery-2.1.4.min.js"></script>
-  	<script src="bootstrap/js/bootstrap.min.js"></script>
-  	<script src="plugins/datatables/jquery.dataTables.min.js"></script>
-  	<script src="plugins/datatables/dataTables.bootstrap.min.js"></script>
-  	<script src="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
-
 	</head>
 
   <body class="skin-blue-light fixed sidebar-mini ">
@@ -159,12 +152,12 @@ IF(ISSET($_SESSION['user'])){
       </footer>
     </div><!-- ./wrapper -->
     <script src="plugins/jQuery/jQuery-2.1.4.min.js"></script>
-  <script src="bootstrap/js/bootstrap.min.js"></script>
   <script src="plugins/datatables/jquery.dataTables.min.js"></script>
   <script src="plugins/datatables/dataTables.bootstrap.min.js"></script>
-  <script src="plugins/sweetalert/sweetalert.min.js"></script>
-  <script src="plugins/bootstrap-notify/bootstrap-notify.min.js"></script>
   <script src="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+    <script src="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+<!-- 
+<script src="dist/js/app.min.js"></script> -->
     <script>
       $(function () {
         $(".textarea").wysihtml5();

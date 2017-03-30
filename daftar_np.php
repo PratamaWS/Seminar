@@ -12,23 +12,14 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Register</title>
-    <!-- Tell the browser to be responsive to screen width -->
+     <link rel="shortcut icon" href="dist/img/favicon.ico">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <!-- Font Awesome -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">   <!-- Theme style -->
     <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Register</title>
-  <!-- Tell the browser to be responsive to screen width -->
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <!-- Bootstrap 3.3.5 -->
-  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-  <!-- Theme style -->
+
   <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
   <link rel="stylesheet" href="dist/css/skin-blue-light.min.css">
 </head>
@@ -49,18 +40,20 @@
           <div class="collapse navbar-collapse pull-right" id="navbar-collapse">
            <a href="index.html" class="navbar-brand"></a>
            <ul class="nav navbar-nav">
-            <li class="active"><a href="index.php"><b>Home </b><span class="sr-only">(current)</span><i class="fa fa-home"></i></a></li>
-            <li><a href="#">Link</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
+            <li class=""><a href="index.php"><b>Home </b><span class="sr-only">(current)</span><i class="fa fa-home"></i></a></li>
+             <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Peserta <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li class="divider"></li>
-                <li><a href="#">Separated link</a></li>
-                <li class="divider"></li>
-                <li><a href="#">One more separated link</a></li>
+                <li><a href="peserta_pemakalah.php">Pemakalah</a></li>
+                <li><a href="peserta_nonpemakalah.php">Non Pemakalah</a></li>
+              </ul>
+            </li>
+            <li class="active dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="login.php">Login</a></li>
+                <li><a href="halaman_register.php">Register Pemakalah</a></li>
+                <li><a href="daftar_np.php">Register Non Pemakalah</a></li>
               </ul>
             </li>
           </ul>
