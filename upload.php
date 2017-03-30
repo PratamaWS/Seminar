@@ -12,13 +12,6 @@ if(isset($_POST["upload"])){
 		header('location: halaman_user.php');
 	}else{
 		$judul_abs = $_POST['judul_abs'];
-		/*$Caption = $_POST['Caption'];
-		$Kategori = $_POST['Kategori'];
-		$Tanggal_Agenda = $_POST['Tanggal_Agenda'];
-		$Tempat_Agenda = $_POST['Tempat_Agenda'];
-		$Kontak = $_POST['Kontak'];
-		$Pelaksana = $_POST['Pelaksana'];
-		*/
 		$file_abs = $_FILES["berkas"]["name"];
 		$filetmp = $_FILES["berkas"]['tmp_name'];
 		$filepath = "uploads/abstrak/".$file_abs;
@@ -38,25 +31,17 @@ if(isset($_POST["upload"])){
 		
 		if(move_uploaded_file($filetmp, $filepath)){
 			$sql = "INSERT INTO $tablename (judul_abs, user, file_abs, keyword, kategori, author1, author1abs, author2, author2abs, author3, 
-								author3abs, author4, author4abs, author5, author5abs, tanggal_ditambahkan, status_lolos, status_bayar, status_mak) 
+								author3abs, author4, author4abs, author5, author5abs, tanggal_ditambahkan,status_lolos,status_bayar,status_mak) 
 			VALUES ('$judul_abs', '$user',  '$file_abs', '$keyword', '$kategori', '$author1','$author1abs','$author2', '$author2abs','$author3',
-			 		'$author3abs', '$author4', '$author4abs', '$author5', '$author5abs',NOW(),'Belum diverifikasi', 'Belum', 'Belum')";
+			 		'$author3abs', '$author4', '$author4abs', '$author5', '$author5abs',NOW(),'Belum','Belum','Belum')";
 			$query = mysqli_query($conn, $sql);
 			if($query){
-				?>
-				<script>
-					alert ("Abstrak berhasil diupload");
-					/*window.location.href='halaman_user.php';*/
-				</script>
-				<?php				
+				$_SESSION['alert2'] = "Abstract Berhasil diupload!";
+				header('location: halaman_user.php');		
 			}
 			else{
-				?>
-				<script>
-					alert ("Abstrak gagal diupload");
-					window.location.href='halaman_user.php';
-				</script>
-				<?php	
+				$_SESSION['alert'] = "Abstrak gagal diupload!";
+				header('location: halaman_user.php');
 			}
 		}
 	}

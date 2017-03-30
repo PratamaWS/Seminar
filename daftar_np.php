@@ -82,8 +82,8 @@
           <div class="box-body">
 
           <div class="col-xs-12 col-sm-12 col-md-10 col-sm-offset-2 col-md-offset-1">
-           <form method="post" action="daftar.php">
-            <h2 class="tengah"><b>REGISTER PEMAKALAH</b></h2>
+           <form method="post" action="simpan_np.php">
+            <h2 class="tengah"><b>REGISTER NON PEMAKALAH </b></h2>
             <hr class="colorgraph">
             <?php
               if(isset($alert)){
@@ -100,10 +100,25 @@
               unset($_SESSION['alert']);
               unset($_SESSION['alert2']);
             ?>
-
+          <div class="form-group has-feedback">
+             <input type="text" class="form-control input-lg" name="nama" required id="nama" placeholder="Nama lengkap" tabindex="4"/>
+            <span class="fa fa-font form-control-feedback"></span>
+           </div>
+           <div class="form-group has-feedback">
+             <input type="text" class="form-control input-lg" name="instansi" required id="instansi" placeholder="Instansi" tabindex="4"/>
+             <span class="fa fa-building form-control-feedback"></span>
+           </div>
+           <div class="form-group has-feedback">
+             <input type="text" class="form-control input-lg" name="alamat" required id="alamat" placeholder="alamat" tabindex="4"/>
+             <span class="fa fa-building form-control-feedback"></span>
+           </div>
             <div class="form-group has-feedback">
              <input type="text" class="form-control input-lg" name="email" required id="email" placeholder="Alamat e-mail" tabindex="4"/>
              <span class="fa fa-envelope form-control-feedback"></span>
+           </div>
+           <div class="form-group has-feedback">
+             <input type="text" class="form-control input-lg" name="no_hp" required id="no_hp" placeholder="Nomor HP" tabindex="4"/>
+             <span class="fa fa-phone form-control-feedback"></span>
            </div>
            <div class="form-group has-feedback">
              <input type="text" class="form-control input-lg" name="username" id="username" required placeholder="Username" tabindex="4"/>

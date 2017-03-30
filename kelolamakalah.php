@@ -4,6 +4,9 @@ session_start();
 if(isset($_SESSION['alert'])){
     $alert = $_SESSION['alert'];
 }
+if(isset($_SESSION['alert2'])){
+    $alert2 = $_SESSION['alert2'];
+}
 IF(ISSET($_SESSION['user'])){
   ?>
   <html>
@@ -113,12 +116,18 @@ IF(ISSET($_SESSION['user'])){
         <h3 class="box-title">Form Upload Makalah</h3>
       </div><!-- /.box-header -->
       <?php
-       if(isset($alert)){
-        ?>
-        <div class="alert alert-success"><?php echo $alert; ?></div>
-        <?php
-      }
+        if(isset($alert)){
+          ?>
+          <div class="alert alert-success"><?php echo $alert; ?></div>
+          <?php
+          }
+        if(isset($alert2)){
+          ?>
+          <div class="alert alert-danger"><?php echo $alert2; ?></div>
+          <?php
+        }
          unset($_SESSION['alert']);
+         unset($_SESSION['alert2']);
       ?>
       <!-- form start -->
       <form role="form" action = "uploadmakalah.php" method = "post" enctype="multipart/form-data">

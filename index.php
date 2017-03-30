@@ -51,7 +51,7 @@ require('connection.php');
     $rpp = 4; // jumlah record per halaman
 
     $db_link = mysqli_connect('localhost', 'root', '', 'seminar'); // sesuaikan username dan password mysqli anda
-    $sql = "SELECT * FROM berita WHERE berita_judul LIKE '%$q%' ORDER BY berita_judul"; // query silahkan disesuaikan
+    $sql = "SELECT * FROM berita WHERE berita_judul LIKE '%$q%' ORDER BY berita_id DESC"; // query silahkan disesuaikan
     $result = mysqli_query($db_link, $sql); // eksekusi query
 
     $tcount = mysqli_num_rows($result); // jumlah total baris
@@ -229,7 +229,10 @@ require('connection.php');
                     <i class="fa fa-user"></i> LOGIN
                   </a>
                   <a href="halaman_register.php"class="btn btn-block btn-social btn-primary btn-flat">
-                    <i class="fa fa-plus"></i> REGISTER
+                    <i class="fa fa-plus"></i> REGISTER PEMAKALAH
+                  </a>
+                   <a href="daftar_np.php"class="btn btn-block btn-social btn-default btn-flat">
+                    <i class="fa fa-plus"></i> REGISTER NON PEMAKALAH
                   </a>
                   <br>
                 </div>

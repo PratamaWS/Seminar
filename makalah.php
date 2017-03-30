@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <?php 
 session_start();
 if (!isset($_SESSION['user'])){
@@ -11,6 +10,7 @@ if($_SESSION['role'] == "user"){
 
 IF(ISSET($_SESSION['user'])){
 ?>
+<!DOCTYPE html>
   <html>
   <head>
     <meta charset="utf-8">

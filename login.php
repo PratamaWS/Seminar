@@ -30,6 +30,9 @@ IF(ISSET($_POST['login'])){
       } else if($result['user_status'] == 2){     
         $_SESSION['role'] = "user";
         header("location: halaman_user.php");      
+      } else if($result['user_status'] == 3){     
+        $_SESSION['role'] = "np";
+        header("location: halaman_np.php");      
       }
     }else{
       $alert = 'Username atau Password Salah!';

@@ -4,6 +4,9 @@ session_start();
 if(isset($_SESSION['alert'])){
     $alert = $_SESSION['alert'];
 }
+if(isset($_SESSION['alert2'])){
+    $alert2 = $_SESSION['alert2'];
+}
 IF(ISSET($_SESSION['user'])){
   ?>
   <html>
@@ -84,7 +87,7 @@ IF(ISSET($_SESSION['user'])){
       </li>
       <li class="actite treeview">
         <a href="kelolamakalah.php">
-          <i class="fa fa-book"></i> <span>Kelola Makalah</span>
+          <i class="fa fa-book"></i> <span>Upload Makalah</span>
         </a>
       </li>
     </ul>
@@ -113,19 +116,25 @@ IF(ISSET($_SESSION['user'])){
         <h3 class="box-title">Form Upload Bukti Pembayaran</h3>
       </div><!-- /.box-header -->
       <?php
-       if(isset($alert)){
+        if(isset($alert)){
         ?>
         <div class="alert alert-success"><?php echo $alert; ?></div>
         <?php
-      }
+        }
+        if(isset($alert2)){
+          ?>
+          <div class="alert alert-danger"><?php echo $alert2; ?></div>
+          <?php
+        }
          unset($_SESSION['alert']);
+         unset($_SESSION['alert2']);
       ?>
       <!-- form start -->
       <form role="form" action = "uploadbayar.php" method = "post" enctype="multipart/form-data">
 
         <div class="box-body">
           <div class="form-group">
-            <label >Upload Foto Bukti Pembayaran</label>
+            <label >Foto Bukti Pembayaran</label>
             <input type="file" name="bayar" required>
             <p class="help-block">*maksimal ukuran foto 500Kb</p>
           </div>
