@@ -100,6 +100,16 @@ IF(ISSET($_SESSION['user'])){
                 <span>Berita</span>
               </a>
             </li>
+                <li class="treeview">
+              <a href="#">
+                <i class="fa fa-edit"></i> <span>Daftar Peserta</span>
+                <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu" style="display: none;">
+                <li><a href="adm_pemakalah.php"><i class="fa fa-circle-o"></i> Pemakalah</a></li>
+                <li><a href="adm_nonpemakalah.php"><i class="fa fa-circle-o"></i> Non Pemakalah</a></li>
+              </ul>
+            </li> 
           </ul>
         </section>
       </aside>

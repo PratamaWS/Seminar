@@ -7,7 +7,7 @@ if(ISSET($_SESSION['user'])){
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Kategori</title>
+  <title>Non Pemakalah</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.5 -->
@@ -117,12 +117,12 @@ if(ISSET($_SESSION['user'])){
 <div class="content-wrapper">
   <section class="content-header">
     <h1>
-      Kelola Kategori
+      Peserta Non Pemakalah
     </h1>
   </br>
   <ol class="breadcrumb">
     <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-    <li class="active">Kelola Kategori</li>
+    <li class="active">Non Pemakalah</li>
   </ol>
 </section>
 <!-- Main content -->
@@ -130,17 +130,18 @@ if(ISSET($_SESSION['user'])){
   <div class="row">
     <div class="col-xs-12">
       <div class="box">
-        <div class="box-header">
-         <button type="submit" class="btn btn-primary " id="btnadd" name="btnadd"><i class="fa fa-plus"></i> Tambah Kategori</button>
-       </div><!-- /.box-header -->
      </br>
      <div class="box-body">
-      <table id="table_kategori" class="table table-bordered table-striped">
+      <table id="table_nonpemakalah" class="table table-bordered table-striped">
         <thead>
           <tr>
-            <th style="width:5%" class="sorting">No</th>
-            <th style="width:25%">Kategori</th>
-            <th style="width:5%">Edit / Hapus</th>
+            <th style="width:5%">Hapus</th>
+            <th style="width:15%">Status Bayar</th>
+            <th style="width:15%">Nama</th>
+            <th style="width:20%">Instansi</th>
+            <th style="width:20%">Alamat</th>
+            <th style="width:20%">No Hp</th>
+            <th style="width:20%">Email</th>
           </tr>
         </thead>
       </table>
@@ -195,7 +196,7 @@ if(ISSET($_SESSION['user'])){
 <script src="plugins/fastclick/fastclick.min.js"></script>
 <script src="dist/js/app.min.js"></script>
 <script src="plugins/sweetalert/sweetalert.min.js"></script>
-<script src="kategori.js"></script>
+<script src="adm_nonpemakalah.js"></script>
 <script src="plugins/bootstrap-notify/bootstrap-notify.min.js"></script>
 </body>
 </html>
