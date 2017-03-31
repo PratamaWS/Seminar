@@ -7,7 +7,7 @@ if(ISSET($_SESSION['user'])){
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Kategori</title>
+  <title>Pemakalah</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.5 -->
@@ -84,7 +84,7 @@ if(ISSET($_SESSION['user'])){
         <i class="fa fa-money"></i> <span>Kelola Pembayaran</span>
       </a>
     </li>
-    <li class="active treeview">
+    <li class="treeview">
       <a href="kategori.php">
         <i class="fa fa-list"></i> <span>Kelola Kategori</span>
       </a>
@@ -100,7 +100,7 @@ if(ISSET($_SESSION['user'])){
         <span>Berita</span>
       </a>
     </li>
-        <li class="treeview">
+        <li class="active  treeview">
               <a href="#">
                 <i class="fa fa-edit"></i> <span>Daftar Peserta</span>
                 <i class="fa fa-angle-left pull-right"></i>
@@ -117,12 +117,12 @@ if(ISSET($_SESSION['user'])){
 <div class="content-wrapper">
   <section class="content-header">
     <h1>
-      Kelola Kategori
+      Peserta Pemakalah
     </h1>
   </br>
   <ol class="breadcrumb">
     <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-    <li class="active">Kelola Kategori</li>
+    <li class="active">Pemakalah</li>
   </ol>
 </section>
 <!-- Main content -->
@@ -130,17 +130,27 @@ if(ISSET($_SESSION['user'])){
   <div class="row">
     <div class="col-xs-12">
       <div class="box">
-        <div class="box-header">
-         <button type="submit" class="btn btn-primary " id="btnadd" name="btnadd"><i class="fa fa-plus"></i> Tambah Kategori</button>
-       </div><!-- /.box-header -->
      </br>
      <div class="box-body">
-      <table id="table_kategori" class="table table-bordered table-striped">
+      <table id="table_pemakalah" class="table table-bordered table-striped">
         <thead>
           <tr>
-            <th style="width:5%" class="sorting">No</th>
-            <th style="width:25%">Kategori</th>
-            <th style="width:5%">Edit / Hapus</th>
+            <th style="width:5%">Hapus</th>
+             <th style="width:5%">Status Lolos</th>
+            <th style="width:5%">Status Bayar</th>
+            <th style="width:5%">Status Makalah</th>
+            <th style="width:10%">Judul</th>
+            <th style="width:5%">Kategori</th>
+            <th style="width:5%">Author 1</th>
+            <th style="width:5%">Author 2</th>
+            <th style="width:5%">Author 3</th>
+            <th style="width:5%">Author 4</th>
+            <th style="width:5%">Author 5</th>
+            <th style="width:5%">Ket Auth 1</th>
+            <th style="width:5%">Ket Auth 2</th>
+            <th style="width:5%">Ket Auth 3</th>
+            <th style="width:5%">Ket Auth 4</th>
+            <th style="width:5%">Ket Auth 5</th>
           </tr>
         </thead>
       </table>
@@ -148,43 +158,9 @@ if(ISSET($_SESSION['user'])){
   </div><!-- /.box -->
 </div><!-- /.col -->
 </div><!-- /.row -->
-<div id="modalkategori" class="modal">
-  <div class="modal-dialog modal-md">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">×</button>
-        <h4 class="modal-title">Form Data Kategori</h4>
-      </div>
-      <!--modal header-->
-      <div class="modal-body">
-        <div class="pad" id="infopanel"></div>
-        <div class="form-horizontal">
-          <div class="form-group"> 
-            <label class="col-sm-2  control-label">Nama</label>
-            <div class="col-sm-9">
-              <input type="text" class="form-control" id="txtnama" placeholder="nama kategori">
-              <input type="hidden" id="crudmethod" value="N"> 
-              <input type="hidden" id="txtid" value="0">
-            </div>
-          </div>
-        </br>
-        <div class="form-group"> 
-          <label class="col-sm-2  control-label"></label>
-          <div class="col-sm-9">
-            <button type="submit" class="btn btn-primary " id="btnsave"><i class="fa fa-save"></i> Save</button></div>
-          </div>
-        </div>
-        <!--modal footer-->
-      </div>
-      <!--modal-content-->
-    </div>
-    <!--modal-dialog modal-lg-->
-  </div>
-  <!--form-kantor-modal-->
-</div>
 </section><!-- /.content -->
 </div><!-- /.content-wrapper -->
-<footer class="main-footer">
+<footer class="main-footer tengah">
   <strong>Copyright &copy; 2017 <a href="">Seminar</a>.</strong> All rights reserved.
 </footer>
 </div><!-- ./wrapper -->
@@ -195,7 +171,7 @@ if(ISSET($_SESSION['user'])){
 <script src="plugins/fastclick/fastclick.min.js"></script>
 <script src="dist/js/app.min.js"></script>
 <script src="plugins/sweetalert/sweetalert.min.js"></script>
-<script src="kategori.js"></script>
+<script src="adm_pemakalah.js"></script>
 <script src="plugins/bootstrap-notify/bootstrap-notify.min.js"></script>
 </body>
 </html>
