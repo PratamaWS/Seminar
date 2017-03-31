@@ -39,8 +39,8 @@ if(isset($_POST['register'])){
 						$sql = "INSERT INTO user (user_name, user_password, user_email, user_create_date, user_status ) 
 						VALUES ('$username', '$password', '$email', NOW(), 3)";
 						mysqli_query($conn, $sql);
-						$sql2 = "INSERT INTO datanp (username, nama_lengkap, instansi, alamat, no_hp, email) 
-						VALUES ('$username', '$nama', '$instansi', '$alamat', '$no_hp','$email')";
+						$sql2 = "INSERT INTO datanp (username, nama_lengkap, instansi, alamat, no_hp, email, status_bayar) 
+						VALUES ('$username', '$nama', '$instansi', '$alamat', '$no_hp','$email','Belum')";
 						mysqli_query($conn, $sql2);
 						$_SESSION['alert2'] = "Akun Berhasil Dibuat, silahkan login <a href='login.php'>disini</a>";
 		    			header("location: daftar_np.php");

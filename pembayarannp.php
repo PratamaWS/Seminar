@@ -78,12 +78,12 @@ IF(ISSET($_SESSION['user'])){
           <span>Kelola Abstrak</span>
         </a>
       </li>
-      <li class="active treeview">
+      <li class="treeview">
         <a href="pembayaran.php">
           <i class="fa fa-money"></i> <span>Kelola Pembayaran Pemakalah</span>
         </a>
       </li>
-      <li class="treeview">
+      <li class="active treeview">
         <a href="pembayarannp.php">
           <i class="fa fa-money"></i> <span>Kelola Pembayaran Non Pemakalah</span>
         </a>
@@ -126,11 +126,13 @@ IF(ISSET($_SESSION['user'])){
       <div class="box">
       </br>
       <div class="box-body">
-        <table id="table_bayar" class="table table-bordered table-striped">
+        <table id="table_bayarnp" class="table table-bordered table-striped">
           <thead>
             <tr>
-              <th style="width:20%">Nama</th>
-              <th style="width:20%">Judul</th>
+              <th style="width:20%">Username</th>
+              <th style="width:20%">Nama Lengkap</th>
+              <th style="width:20%">Instansi</th>
+              <th style="width:20%">Nomor HP</th>
               <th style="width:15%">Status Bayar</th>
               <!--                        <th style="width:15%">Status Bayar</th> -->
               <th style="width:8%">File</th>
@@ -164,7 +166,7 @@ IF(ISSET($_SESSION['user'])){
 
 <script src="plugins/sweetalert/sweetalert.min.js"></script>
 
-<script src="pembayaran.js"></script>
+<script src="pembayarannp.js"></script>
 
 <script src="plugins/bootstrap-notify/bootstrap-notify.min.js"></script>
 </body>

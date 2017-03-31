@@ -1,6 +1,6 @@
 $(document).ready( function () 
     {
-      $('#table_bayar').DataTable({
+      $('#table_bayarnp').DataTable({
         "paging": true,
         "lengthChange": true,
         "searching": true,
@@ -11,12 +11,14 @@ $(document).ready( function ()
         "pageLength": 10,
 
         "ajax": {
-          "url": "datapembayaran.php",
+          "url": "datapembayarannp.php",
           "type": "POST"
         },
         "columns": [
-        { "data": "user" },
-        { "data": "judul_abs" },
+        { "data": "username" },
+        { "data": "nama_lengkap" },
+        { "data": "instansi" },
+        { "data": "no_hp" },
         { "data": "status_bayar"},
        /* { "data": "status_bayar" },*/
         { "data": "download" , "orderable": false},
@@ -26,23 +28,22 @@ $(document).ready( function ()
     });
    $(document).on("change", '.btnedit', function (){
           var $this = $(this);
-          var id_data = $this.attr("id_data");
-          var user = $this.attr("user");
+          var username = $this.attr("username");
           var status_bayar = $this.attr("status_bayar");
           swal({   
           title: "Konfirmasi Pembayaran?",   
-          text: "Konfirmasi pembayaran milik : "+user+" ?",   
+          text: "Konfirmasi pembayaran milik : "+username+" ?",   
           type: "warning",   
           showCancelButton: true,   
           confirmButtonColor: "#10a98b",   
           confirmButtonText: "Konfirmasi",   
           closeOnConfirm: true }, 
           function(){   
-            $.ajax({
-             url: 'proses_bayar.php',
+             $.ajax({
+             url: 'proses_bayarnp.php',
              type: 'post',
              data: {
-                id_data: id_data, 
+                username: username, 
                 status_bayar: status_bayar
              },
             success: function(data, textStatus, jqXHR)
@@ -50,7 +51,7 @@ $(document).ready( function ()
               var data = jQuery.parseJSON(data);
               if(data.result ==1){
                 $.notify("Status Pembayaran berubah ke Sudah","success");
-                var table = $('#table_bayar').DataTable(); 
+                var table = $('#table_bayarnp').DataTable(); 
                 table.ajax.reload( null, false );
               }else{
                 swal("Error","Can't delete data, error : "+data.error,"error");
@@ -63,7 +64,7 @@ $(document).ready( function ()
         }
       });
   });
-          
+
       $.notifyDefaults({
       type: 'success',
       delay: 1000

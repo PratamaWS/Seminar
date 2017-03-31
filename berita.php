@@ -28,8 +28,7 @@ IF(ISSET($_SESSION['user'])){
 
   <body class="skin-blue-light fixed sidebar-mini ">
     <div class="wrapper">
-
-            <header class="main-header">
+      <header class="main-header">
         <a href="index.php" class="logo">
           <span class="logo-lg"><b>Admin</b></span>
         </a>
@@ -181,14 +180,14 @@ IF(ISSET($_SESSION['user'])){
 					<br />
 					<label>Isi Berita</label>
             <div class="form-group"> 
-                  <div class="col-md-12">
+              <div class="col-md-12">
                 <div class="box-header">
-                <div class="box-body pad">
+                  <div class="box-body pad">
                     <textarea id="berita_isi" type="text"  required name="berita_isi" rows="10" cols="80" class="textarea" placeholder="Tulis isi Berita" style="width: 100%; height: 250px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                  </div>
                 </div>
               </div>
-                      </div>
-                    </div>
+            </div>
 					<br />
 					<label>Upload gambar (Jika ada)</label>
 					<input type="file" name="user_image" id="user_image" />
@@ -229,7 +228,6 @@ $(document).ready(function(){
 				"orderable":false,
 			},
 		],
-
 	});
 
 	$(document).on('submit', '#user_form', function(event){

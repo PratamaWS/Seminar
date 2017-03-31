@@ -1,0 +1,15 @@
+
+    <div class="table-responsive">
+    <table class="table table-condensed table-stripped" border="1">
+    <tr style="font-size:16px;"><th>No</th><th>Nama</th><th>Instansi</th><th>Handphone</th><th>Email</th><th>Alamat</th><th width="150">Jenis Kelamin</th><th>Keperluan</th><th>Waktu</th><th>Tamu</th></tr>
+    
+        <tr><td>1</td><td width="130">Kartini Aprilia P N</td><td width="100">Universitas Sebelas Maret</td><td width="130">08123456789</td><td width="100">kartiniapriia09@gmail.com</td><td>Mendung 2</td><td width="50">Perempuan</td><td>Daftar Magang</td><td width="190">10-03-2017, 08:30:20</td><td width="90">Datacenter</td></tr>
+      
+        <tr><td>2</td><td width="130">Michael Juan V</td><td width="100">UNS</td><td width="130">085123456789</td><td width="100">juan@gmail.com</td><td>Solo</td><td width="50">Laki-laki</td><td>Rahasia</td><td width="190">10-03-2017, 16:25:14</td><td width="90">Kehutanan</td></tr>
+      
+        <tr><td>3</td><td width="130">ayam</td><td width="100">kesehatan</td><td width="130">0857776665554</td><td width="100">ayamgaul@gmail.com</td><td>kandang pak tarman</td><td width="50">Laki-laki</td><td>konsultasi H5N1</td><td width="190">22-03-2017, 12:57:06</td><td width="90">Kesehatan Hewan</td></tr>
+      
+        <tr><td>4</td><td width="130">Michael Juan V</td><td width="100">UNS</td><td width="130">085123456789</td><td width="100">michaeljuan@student.uns.ac.id</td><td>Surakarta</td><td width="50">Laki-laki</td><td>Magang</td><td width="190">10-03-2017, 08:43:40</td><td width="90">LPSE</td></tr>
+      
+        <tr><td>5</td><td width="130">perkebunan</td><td width="100">perkebunan</td><td width="130">085712345667</td><td width="100">perkebunan@gmail.com</td><td>kebun</td><td width="50">Perempuan</td><td>kebun</td><td width="190">10-03-2017, 16:49:03</td><td width="90">Perkebunan</td></tr>
+      

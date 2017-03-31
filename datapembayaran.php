@@ -9,7 +9,7 @@
 	$i=0;
 	foreach ($data as $key) {
 		$data[$i]['download'] = '<a href="uploads/bayar/'.$data[$i]['file_bayar'].'" class="btn btn-primary btnedit"><i class="fa fa-download "></i></a>';
-		$data[$i]['cekbayar'] = '<input type="checkbox"  id_data="'.$data[$i]['id_data'].'" status_bayar="'.$data[$i]['status_bayar'].'"class="btn btn-primary btnedit"></button>';
+		$data[$i]['cekbayar'] = '<input type="checkbox"  id_data="'.$data[$i]['id_data'].'" status_bayar="'.$data[$i]['status_bayar'].'" user="'.$data[$i]['user'].'"class="btn btn-primary btnedit"></button>';
 		$i++;
 	}
 	$datax = array('data' => $data);
