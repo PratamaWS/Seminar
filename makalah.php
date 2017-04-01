@@ -17,6 +17,7 @@ IF(ISSET($_SESSION['user'])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Kelola Abstrak</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+     <link rel="shortcut icon" href="dist/img/favicon.ico">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="plugins/datatables/dataTables.bootstrap.css">
@@ -62,43 +63,22 @@ IF(ISSET($_SESSION['user'])){
             </div>
           </div>
           </br>
-          <ul class="sidebar-menu">
-            <li class="header">MENU</li>
-            <li class="treeview">
-              <a href="index.php">
-                <i class="fa fa-dashboard"></i><span>Dashboard</span>
-              </a>
-            </li>
-            <li class="treeview">
-              <a href="abstrak.php">
-                <i class="fa fa-files-o"></i>
-                <span>Kelola Abstrak</span>
-              </a>
-            </li>
-            <li>
-              <a href="pembayaran.php">
-                <i class="fa fa-money"></i> <span>Kelola Pembayaran</span>
-              </a>
-            </li>
-            <li class="treeview">
-              <a href="kategori.php">
-                <i class="fa fa-th"></i> <span>Kelola Kategori</span>
-              </a>
-            </li>
-            <li class="active treeview">
-              <a href="makalah.php">
-                <i class="fa fa-book"></i> <span>Kelola makalah</span>
-              </a>
-            </li>
-            <li class="treeview">
-              <a href="berita.php">
-                <i class="fa fa-bullhorn"></i>
-                <span>Berita</span>
-              </a>
-            </li>
+    <ul class="sidebar-menu">
+      <li class="header">MENU</li>
+        <li class="treeview">
+        <a href="berita.php">
+          <i class="fa fa-bullhorn"></i>
+          <span>Kelola Berita</span>
+        </a>
+      </li>
+       <li class="treeview">
+        <a href="kategori.php">
+          <i class="fa fa-th"></i> <span>Kelola Kategori</span>
+        </a>
+      </li>
                 <li class="treeview">
               <a href="#">
-                <i class="fa fa-edit"></i> <span>Daftar Peserta</span>
+                <i class="fa fa-user"></i> <span>Daftar Peserta</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu" style="display: none;">
@@ -106,7 +86,25 @@ IF(ISSET($_SESSION['user'])){
                 <li><a href="adm_nonpemakalah.php"><i class="fa fa-circle-o"></i> Non Pemakalah</a></li>
               </ul>
             </li> 
-          </ul>
+          <li class="treeview">
+              <a href="#">
+                <i class="fa fa-money"></i> <span>Kelola Pembayaran</span> <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li ><a href="pembayaran.php"><i class="fa fa-circle-o"></i> Pemakalah</a></li>
+                <li><a href="pembayarannp.php"><i class="fa fa-circle-o"></i> Non Pemakalah</a></li>
+              </ul>
+            </li>
+          <li class="active treeview">
+              <a href="#">
+                <i class="fa fa-book"></i> <span>Kelola Data Pemakalah</span> <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li ><a href="abstrak.php"><i class="fa fa-circle-o"></i> Konfirmasi Abstrak</a></li>
+                <li class="active"><a href="makalah.php"><i class="fa fa-circle-o"></i> Konfirmasi Makalah</a></li>
+              </ul>
+            </li>
+    </ul>
         </section>
       </aside>
 
@@ -142,7 +140,7 @@ IF(ISSET($_SESSION['user'])){
           </div><!-- /.row -->
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
-      <footer class="main-footer">
+       <footer class="main-footer tengah">
         <strong>Copyright &copy; 2017 <a href="">Seminar</a>.</strong> All rights reserved.
       </footer>
     </div><!-- ./wrapper -->
@@ -150,7 +148,6 @@ IF(ISSET($_SESSION['user'])){
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="plugins/datatables/jquery.dataTables.min.js"></script>
     <script src="plugins/datatables/dataTables.bootstrap.min.js"></script>
-    <script src="plugins/fastclick/fastclick.min.js"></script>
     <script src="dist/js/app.min.js"></script>
     <script src="plugins/sweetalert/sweetalert.min.js"></script>
     <script src="makalah.js"></script>

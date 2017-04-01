@@ -26,7 +26,7 @@ IF(ISSET($_POST['login'])){
       $result = mysql_fetch_assoc($resultsql);
       if($result['user_status'] == 1){      
         $_SESSION['role'] = "admin";  
-        header("location: homeadmin.php");
+        header("location: berita.php");
       } else if($result['user_status'] == 2){     
         $_SESSION['role'] = "user";
         header("location: halaman_user.php");      

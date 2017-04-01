@@ -12,7 +12,7 @@ if($_SESSION['role'] == "user"){
 IF(ISSET($_SESSION['user'])){
 ?>
 <html>
-	<head>		 
+  <head>     
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Berita</title>
@@ -24,11 +24,19 @@ IF(ISSET($_SESSION['user'])){
     <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="dist/css/skin-blue-light.min.css">
     <link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
-	</head>
+
+    <script src="plugins/jQuery/jQuery-2.1.4.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="plugins/datatables/dataTables.bootstrap.min.js"></script>
+    <script src="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+
+  </head>
 
   <body class="skin-blue-light fixed sidebar-mini ">
     <div class="wrapper">
-      <header class="main-header">
+
+            <header class="main-header">
         <a href="index.php" class="logo">
           <span class="logo-lg"><b>Admin</b></span>
         </a>
@@ -65,51 +73,35 @@ IF(ISSET($_SESSION['user'])){
             </div>
           </div>
           </br>
-          <ul class="sidebar-menu">
-            <li class="header">MENU</li>
-            <li class="treeview">
-              <a href="index.php">
-                <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-              </a>
-            </li>
-            <li class="treeview">
-              <a href="abstrak.php">
-                <i class="fa fa-files-o"></i>
-                <span>Kelola Abstrak</span>
-              </a>
-            </li>
-            <li class="treeview ">
-              <a href="pembayaran.php">
-                <i class="fa fa-money"></i> <span>Kelola Pembayaran</span>
-              </a>
-            </li>
-            <li class="treeview">
-              <a href="kategori.php">
-                <i class="fa fa-list"></i> <span>Kelola Kategori</span>
-              </a>
-            </li>
-            <li class="treeview">
-              <a href="makalah.php">
-                <i class="fa fa-book"></i> <span>Kelola makalah</span>
-              </a>
-            </li>
-            <li class="active treeview">
-              <a href="berita.php">
-                <i class="fa fa-bullhorn"></i>
-                <span>Berita</span>
-              </a>
-            </li>
-                <li class="treeview">
-              <a href="#">
-                <i class="fa fa-edit"></i> <span>Daftar Peserta</span>
-                <i class="fa fa-angle-left pull-right"></i>
-              </a>
-              <ul class="treeview-menu" style="display: none;">
-                <li><a href="adm_pemakalah.php"><i class="fa fa-circle-o"></i> Pemakalah</a></li>
-                <li><a href="adm_nonpemakalah.php"><i class="fa fa-circle-o"></i> Non Pemakalah</a></li>
-              </ul>
-            </li> 
-          </ul>
+       <ul class="sidebar-menu">
+      <li class="header">MENU</li>
+        <li class="active treeview">
+        <a href="berita.php">
+          <i class="fa fa-bullhorn"></i>
+          <span>Kelola Berita</span>
+        </a>
+      </li>
+       <li class="treeview">
+        <a href="kategori.php">
+          <i class="fa fa-th"></i> <span>Kelola Kategori</span>
+        </a>
+      </li>
+             <li class="treeview">
+        <a href="adm_pemakalah.php">
+          <i class="fa fa-user"></i> <span>Daftar Peserta</span><i class="fa fa-angle-left pull-right"></i>
+        </a>
+      </li> 
+                 <li class="treeview">
+        <a href="pembayaran.php">
+          <i class="fa fa-money"></i> <span>Kelola Pembayaran</span><i class="fa fa-angle-left pull-right"></i>
+        </a>
+      </li> 
+                       <li class="treeview">
+        <a href="abstrak.php">
+          <i class="fa fa-book"></i> <span>Kelola Data Pemakalah</span><i class="fa fa-angle-left pull-right"></i>
+        </a>
+      </li> 
+    </ul>
         </section>
       </aside>
 
@@ -134,22 +126,22 @@ IF(ISSET($_SESSION['user'])){
             <div class="col-xs-12">
               <div class="box">
                 <div class="box-header">
-                		<button type="button" id="add_button" data-toggle="modal" data-target="#userModal" class="btn btn-primary "><i class="fa fa-plus"></i> Tambah Berita</button>
+                    <button type="button" id="add_button" data-toggle="modal" data-target="#userModal" class="btn btn-primary "><i class="fa fa-plus"></i> Tambah Berita</button>
                 </div>
                 </br>
                 <div class="box-body">
-				<table id="user_data" class="table table-bordered table-striped">
-					<thead>
-						<tr>
-							<th width="10%">Gambar</th>
-							<th width="20%">Judul</th>
-							<th width="35%">Isi</th>
-							<th width="15%">Tanggal Dibuat</th>
-							<th width="10%">Edit</th>
-							<th width="10%">Delete</th>
-						</tr>
-					</thead>
-				</table>
+        <table id="user_data" class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th width="10%">Gambar</th>
+              <th width="20%">Judul</th>
+              <th width="35%">Isi</th>
+              <th width="15%">Tanggal Dibuat</th>
+              <th width="10%">Edit</th>
+              <th width="10%">Delete</th>
+            </tr>
+          </thead>
+        </table>
                 </div><!-- /.box-body -->
               </div><!-- /.box -->
             </div><!-- /.col -->
@@ -160,13 +152,6 @@ IF(ISSET($_SESSION['user'])){
         <strong>Copyright &copy; 2017 <a href="">Seminar</a>.</strong> All rights reserved.
       </footer>
     </div><!-- ./wrapper -->
-    <script src="plugins/jQuery/jQuery-2.1.4.min.js"></script>
-  <script src="plugins/datatables/jquery.dataTables.min.js"></script>
-  <script src="plugins/datatables/dataTables.bootstrap.min.js"></script>
-  <script src="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
-    <script src="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
-<!-- 
-<script src="dist/js/app.min.js"></script> -->
     <script>
       $(function () {
         $(".textarea").wysihtml5();
@@ -177,148 +162,149 @@ IF(ISSET($_SESSION['user'])){
 </html>
 
 <div id="userModal" class="modal fade">
-	<div class="modal-dialog">
-		<form method="post" id="user_form" enctype="multipart/form-data">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title">Add User</h4>
-				</div>
-				<div class="modal-body">
-					<label>Judul berita</label>
-					<input type="text" name="berita_judul" id="berita_judul" class="form-control " required/>
-					<br />
-					<label>Isi Berita</label>
+  <div class="modal-dialog">
+    <form method="post" id="user_form" enctype="multipart/form-data">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Add User</h4>
+        </div>
+        <div class="modal-body">
+          <label>Judul berita</label>
+          <input type="text" name="berita_judul" id="berita_judul" class="form-control " required/>
+          <br />
+          <label>Isi Berita</label>
             <div class="form-group"> 
-              <div class="col-md-12">
+                  <div class="col-md-12">
                 <div class="box-header">
-                  <div class="box-body pad">
+                <div class="box-body pad">
                     <textarea id="berita_isi" type="text"  required name="berita_isi" rows="10" cols="80" class="textarea" placeholder="Tulis isi Berita" style="width: 100%; height: 250px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
-                  </div>
                 </div>
               </div>
-            </div>
-					<br />
-					<label>Upload gambar (Jika ada)</label>
-					<input type="file" name="user_image" id="user_image" />
-					<span id="user_uploaded_image"></span>
-				</div>
-				<div class="modal-footer">
-					<input type="hidden" name="berita_id" id="berita_id" />
-					<input type="hidden" name="operation" id="operation" />
-					<input type="submit" name="action" id="action" class="btn btn-primary" value="Add" />
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				</div>
-			</div>
-		</form>
-	</div>
+                      </div>
+                    </div>
+          <br />
+          <label>Upload gambar (Jika ada)</label>
+          <input type="file" name="user_image" id="user_image" />
+          <span id="user_uploaded_image"></span>
+        </div>
+        <div class="modal-footer">
+          <input type="hidden" name="berita_id" id="berita_id" />
+          <input type="hidden" name="operation" id="operation" />
+          <input type="submit" name="action" id="action" class="btn btn-primary" value="Add" />
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </form>
+  </div>
 </div>
 
 <script type="text/javascript" language="javascript" >
 $(document).ready(function(){
-	$('#add_button').click(function(){
-		$('#user_form')[0].reset();
-		$('.modal-title').text("Form Tambah Berita");
-		$('#action').val("Add");
-		$('#operation').val("Add");
-		$('#user_uploaded_image').html('');
-	});
-	
-	var dataTable = $('#user_data').DataTable({
-		"processing":true,
-		"serverSide":true,
-		"order":[],
-		"ajax":{
-			url:"fetch.php",
-			type:"POST"
-		},
-		"columnDefs":[
-			{
-				"targets":[0, 4,5],
-				"orderable":false,
-			},
-		],
-	});
+  $('#add_button').click(function(){
+    $('#user_form')[0].reset();
+    $('.modal-title').text("Form Tambah Berita");
+    $('#action').val("Add");
+    $('#operation').val("Add");
+    $('#user_uploaded_image').html('');
+  });
+  
+  var dataTable = $('#user_data').DataTable({
+    "processing":true,
+    "serverSide":true,
+    "order":[],
+    "ajax":{
+      url:"fetch.php",
+      type:"POST"
+    },
+    "columnDefs":[
+      {
+        "targets":[0, 4,5],
+        "orderable":false,
+      },
+    ],
 
-	$(document).on('submit', '#user_form', function(event){
-		event.preventDefault();
-		var beritajudul = $('#berita_judul').val();
-		var beritaisi = $('#berita_isi').val();
-		var extension = $('#user_image').val().split('.').pop().toLowerCase();
-		if(extension != '')
-		{
-			if(jQuery.inArray(extension, ['gif','png','jpg','jpeg']) == -1)
-			{
-				alert("Invalid Image File");
-				$('#user_image').val('');
-				return false;
-			}
-		}	
-		if(beritajudul != '' && beritaisi != '')
-		{
-			$.ajax({
-				url:"insert.php",
-				method:'POST',
-				data:new FormData(this),
-				contentType:false,
-				processData:false,
-				success:function(data)
-				{
-					alert(data);
-					$('#user_form')[0].reset();
-/*					$('#userModal').modal('hide');*/
+  });
+
+  $(document).on('submit', '#user_form', function(event){
+    event.preventDefault();
+    var beritajudul = $('#berita_judul').val();
+    var beritaisi = $('#berita_isi').val();
+    var extension = $('#user_image').val().split('.').pop().toLowerCase();
+    if(extension != '')
+    {
+      if(jQuery.inArray(extension, ['gif','png','jpg','jpeg']) == -1)
+      {
+        alert("Invalid Image File");
+        $('#user_image').val('');
+        return false;
+      }
+    } 
+    if(beritajudul != '' && beritaisi != '')
+    {
+      $.ajax({
+        url:"insert.php",
+        method:'POST',
+        data:new FormData(this),
+        contentType:false,
+        processData:false,
+        success:function(data)
+        {
+          alert(data);
+          $('#user_form')[0].reset();
+/*          $('#userModal').modal('hide');*/
           dataTable.ajax.reload();
-				}
-			});
-		}
-		else
-		{
-			alert("Both Fields are Required");
-		}
-	});
-	
-	$(document).on('click', '.update', function(){
-		var berita_id = $(this).attr("berita_id");
-		$.ajax({
-			url:"fetch_single.php",
-			method:"POST",
-			data:{berita_id:berita_id},
-			dataType:"json",
-			success:function(data)
-			{
-				$('#userModal').modal('show');
-				$('#berita_judul').val(data.berita_judul);
-				$('#berita_isi').val(data.berita_isi);
+        }
+      });
+    }
+    else
+    {
+      alert("Both Fields are Required");
+    }
+  });
+  
+  $(document).on('click', '.update', function(){
+    var berita_id = $(this).attr("berita_id");
+    $.ajax({
+      url:"fetch_single.php",
+      method:"POST",
+      data:{berita_id:berita_id},
+      dataType:"json",
+      success:function(data)
+      {
+        $('#userModal').modal('show');
+        $('#berita_judul').val(data.berita_judul);
+        $('#berita_isi').val(data.berita_isi);
         $('#berita_tanggal').val(data.berita_tanggal);
-				$('.modal-title').text("Edit data berita");
-				$('#berita_id').val(berita_id);
-				$('#user_uploaded_image').html(data.user_image);
-				$('#action').val("Edit");
-				$('#operation').val("Edit");
-			}
-		})
-	});
-	
-	$(document).on('click', '.delete', function(){
-		var berita_id = $(this).attr("berita_id");
-		if(confirm("Are you sure you want to delete this?"))
-		{
-			$.ajax({
-				url:"delete_berita.php",
-				method:"POST",
-				data:{berita_id:berita_id},
-				success:function(data)
-				{
-					dataTable.ajax.reload();
-				}
-			});
-		}
-		else
-		{
-			return false;	
-		}
-	});
-	
+        $('.modal-title').text("Edit data berita");
+        $('#berita_id').val(berita_id);
+        $('#user_uploaded_image').html(data.user_image);
+        $('#action').val("Edit");
+        $('#operation').val("Edit");
+      }
+    })
+  });
+  
+  $(document).on('click', '.delete', function(){
+    var berita_id = $(this).attr("berita_id");
+    if(confirm("Are you sure you want to delete this?"))
+    {
+      $.ajax({
+        url:"delete_berita.php",
+        method:"POST",
+        data:{berita_id:berita_id},
+        success:function(data)
+        {
+          dataTable.ajax.reload();
+        }
+      });
+    }
+    else
+    {
+      return false; 
+    }
+  });
+  
 });
 </script>
 <?php 

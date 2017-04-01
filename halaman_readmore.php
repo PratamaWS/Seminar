@@ -98,26 +98,45 @@
                 </div><!-- /.box -->
               </div><!-- /.col -->
               <div class="col-md-4">
-                <div class="box box-purple">
-                  <div class="box-header with-border">
-                    <h3 class="box-title">MASUK AKUN</h3>
-                  </div>
-                  <form class="form-horizontal">
-                    <div class="box-body">
-                      <div class="box-body">
-                        <a href="login.php"class="btn btn-block btn-social btn-github btn-flat">
-                          <i class="fa fa-user"></i> LOGIN
-                        </a>
-                        <a href="halaman_register.php"class="btn btn-block btn-social btn-primary btn-flat">
-                          <i class="fa fa-plus"></i> REGISTER
-                        </a>
-                        <br>
-                      </div>
-                    </div><!-- /.box-body -->
-                  </form>
-                </div><!-- /.box -->
-              </div><!--/.col (right) -->
-            </div><!-- /.row -->
+      <div class="box box-purple">
+                <div class="box-header with-border">
+                  <h3 class="box-title">ACCOUNT</h3>
+                </div><!-- /.box-header -->
+                <!-- form start -->
+                <form class="form-horizontal">
+                  <div class="box-body">
+                  <div class="box-body">
+                  <a href="login.php"class="btn btn-block btn-social btn-github btn-flat">
+                    <i class="fa fa-user"></i> LOGIN
+                  </a>
+                  <a href="halaman_register.php"class="btn btn-block btn-social btn-primary btn-flat">
+                    <i class="fa fa-plus"></i> REGISTER PEMAKALAH
+                  </a>
+                   <a href="daftar_np.php"class="btn btn-block btn-social btn-default btn-flat">
+                    <i class="fa fa-plus"></i> REGISTER NON PEMAKALAH
+                  </a>
+                  <br>
+                </div>
+                  </div><!-- /.box-body -->
+                </form>
+              </div><!-- /.box -->
+                       <div class="box box-purple">
+          <div class="box-header with-border">
+            <h3 class="box-title">DAFTAR PESERTA</h3>
+          </div><!-- /.box-header -->
+          <!-- form start -->
+          <form class="form-horizontal">
+            <div class="box-body">
+             <h4> <a href="peserta_pemakalah.php"class=""><i class="glyphicon glyphicon-arrow-right"></i>      Pemakalah</h4>
+              </a>
+              <h4> <a href="peserta_nonpemakalah.php"class=""><i class="glyphicon glyphicon-arrow-right"></i>      Non Pemakalah</h4>
+              </a>
+              </div>
+          </form>
+        </div><!-- /.box -->
+            </div><!--/.col (right) -->
+          </div><!-- /.row -->
+          </div><!-- /.row -->
           </section><!-- /.content -->
         </div><!-- /.container -->
       </div><!-- /.content-wrapper -->
