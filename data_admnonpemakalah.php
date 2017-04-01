@@ -9,7 +9,7 @@
 	foreach ($data as $key) {
 
 		$data[$i]['btnhps'] = '
-		<button type="submit" id_np="'.$data[$i]['id_np'].'" nama_lengkap="'.$data[$i]['nama_lengkap'].'" class="btn btn-primary btnhapus" ><i class="fa fa-remove"></i></button>';
+		<button type="submit" username="'.$data[$i]['username'].'" nama_lengkap="'.$data[$i]['nama_lengkap'].'" class="btn btn-primary btnhapus" ><i class="fa fa-remove"></i></button>';
 		$i++;
 	}
 	$datax = array('data' => $data);

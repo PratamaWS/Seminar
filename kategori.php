@@ -24,7 +24,7 @@ if(ISSET($_SESSION['user'])){
   <div class="wrapper">
     <header class="main-header">
       <!-- Logo -->
-      <a href="index.php" class="logo">
+      <a href="berita.php" class="logo">
         <span class="logo-lg"><b>Admin</b></span>
       </a>
       <nav class="navbar navbar-static-top" role="navigation">
@@ -114,7 +114,7 @@ if(ISSET($_SESSION['user'])){
     </h1>
   </br>
   <ol class="breadcrumb">
-    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+    <li><a href="berita.php"><i class="fa fa-dashboard"></i> Home</a></li>
     <li class="active">Kelola Kategori</li>
   </ol>
 </section>
