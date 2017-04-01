@@ -102,6 +102,7 @@ require('connection.php');
             </tr>
           </thead>
         </table>
+          <h5>*Nb = bagi peserta yang telah mengupload pembayaran</h5>
                 </div><!-- /.box -->
                <div class="box-footer clearfix">
             <div class="row">

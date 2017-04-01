@@ -1,6 +1,6 @@
 <?php
 	include "koneksi.php";
-	$query=mysql_query("SELECT * FROM datanp");
+	$query=mysql_query("SELECT * FROM datanp WHERE status_bayar='Sudah'");
 	$data = array();
 	while($r = mysql_fetch_assoc($query)) {
 		$data[] = $r;

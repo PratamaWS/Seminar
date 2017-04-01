@@ -102,10 +102,10 @@ require('connection.php');
               <th width="20%">Kategori</th>
               <th width="10%">Abstrak</th>
               <th width="10%">Paper</th>
-
             </tr>
           </thead>
         </table>
+        <h5>*Nb = bagi peserta yang telah mengupload file paper</h5>
                 </div><!-- /.box -->
                <div class="box-footer clearfix">
             <div class="row">
