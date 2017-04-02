@@ -5,8 +5,13 @@ if (!isset($_SESSION['user'])){
  echo "<script language=\"javascript\">alert(\"Silahkan Login Terlebih Dahulu\");document.location.href='login.php';</script>";  
 }
 
-if($_SESSION['role'] == "user"){
-  header("location:halaman_user.php");
+if(isset($_SESSION['user'])){
+   if($_SESSION['role'] == "user"){
+     header("location:halaman_user.php");
+   }
+   if($_SESSION['role'] == "np"){
+     header("location:halaman_np.php");
+   }
 }
 
 IF(ISSET($_SESSION['user'])){
@@ -42,8 +47,8 @@ IF(ISSET($_SESSION['user'])){
         </a>
         <nav class="navbar navbar-static-top" role="navigation">
           <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-            <span class="sr-only">Toggle navigation</span>
-          </a>
+          <span class="sr-only">Toggle navigation</span>
+        </a>
           <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
               <li class="dropdown user user-menu">
@@ -114,7 +119,7 @@ IF(ISSET($_SESSION['user'])){
     </h1>
   </br>
   <ol class="breadcrumb">
-    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+    <li><i class="fa fa-home"></i> Home</li>
     <li class="active">Kelola berita</li>
   </ol>
 </section>

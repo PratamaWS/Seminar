@@ -30,20 +30,17 @@ IF(ISSET($_POST['login'])){
     IF($cek > 0)
     {
       $user= $data['user_name'];
-      
+      $_SESSION['user'] = $user;
       $sql = "SELECT user_status FROM user WHERE user_name = '$user' ";
       $resultsql = mysql_query( $sql);
       $result = mysql_fetch_assoc($resultsql);
       if($result['user_status'] == 1){      
-        $alert = "Username atau Password Salah!";
-      } else if($result['user_status'] == 2){   
-        $_SESSION['user'] = $user;  
-        $_SESSION['role'] = "user";
-        header("location: halaman_user.php");      
-      } else if($result['user_status'] == 3){ 
-        $_SESSION['user'] = $user;    
-        $_SESSION['role'] = "np";
-        header("location: halaman_np.php");      
+        $_SESSION['role'] = "admin";  
+        header("location: berita.php");
+      } else if($result['user_status'] == 2){     
+        $alert = 'Username atau Password Salah!';
+      } else if($result['user_status'] == 3){     
+        $alert = 'Username atau Password Salah!';      
       }
     }else{
       $alert = 'Username atau Password Salah!';
@@ -112,8 +109,8 @@ IF(ISSET($_POST['login'])){
           <div class="box-body">
 
           <div class="col-xs-12 col-sm-12 col-md-10 col-sm-offset-2 col-md-offset-1">
-          <form action="login.php" method="POST">
-            <h2 class="tengah"><b>LOGIN USER</b></h2>
+          <form action="admin_login.php" method="POST">
+            <h2 class="tengah"><b>LOGIN ADMIN</b></h2>
             <hr class="colorgraph">
             <?php
              if(isset($alert)){

@@ -7,6 +7,14 @@ if(isset($_SESSION['alert'])){
 if(isset($_SESSION['alert2'])){
     $alert2 = $_SESSION['alert2'];
 }
+if(isset($_SESSION['user'])){
+   if($_SESSION['role'] == "admin"){
+     header("location:berita.php");
+   }
+   if($_SESSION['role'] == "np"){
+     header("location:halaman_np.php");
+   }
+  }
 IF(ISSET($_SESSION['user'])){
   ?>
   <html>
@@ -18,7 +26,7 @@ IF(ISSET($_SESSION['user'])){
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    
+    <link rel="shortcut icon" href="dist/img/favicon.ico">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <!-- DataTables -->
     <link rel="stylesheet" href="plugins/datatables/dataTables.bootstrap.css">
@@ -34,7 +42,7 @@ IF(ISSET($_SESSION['user'])){
     <div class="wrapper">
       <header class="main-header">
         <!-- Logo -->
-        <a href="index.php" class="logo">
+        <a href="kelolamakalah.php" class="logo">
           <span class="logo-lg"><b>Seminar Nasional</b></span>
         </a>
         <nav class="navbar navbar-static-top" role="navigation">
@@ -45,7 +53,7 @@ IF(ISSET($_SESSION['user'])){
           <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
               <li class="dropdown user user-menu">
-                <a class="dropdown-toggle" data-toggle="dropdown">
+                <a href="kelolamakalah.php" class="dropdown-toggle" data-toggle="dropdown">
                   <i class="fa fa-user"></i>
                   <span><?=$_SESSION['user']?></span> 
                 </a>
@@ -101,7 +109,7 @@ IF(ISSET($_SESSION['user'])){
     </h1>
   </br>
   <ol class="breadcrumb">
-    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+    <li><i class="fa fa-home"></i> Home</li>
     <li class="active">Upload Makalah</li>
   </ol>
 </section>
@@ -135,8 +143,9 @@ IF(ISSET($_SESSION['user'])){
           <div class="form-group">
             <label >Makalah</label>
             <input type="file" name="makalah" required >
-            <p class="help-block">*maksimal ukuran abstrak xKb</p>
+            <p class="help-block">*maksimal ukuran makalah 10MB</p>
           </div>
+          <strong><p style="color:red;" class="help-block">*ANDA HANYA BISA MENGUPLOAD MAKALAH SATU KALI, PASTIKAN FILE YANG ANDA UPLOAD SUDAH BENAR!</p></strong>
         <div class="box-footer">
           <button type="submit" name="uploadmakalah" class="btn btn-primary btn-flat">Submit</button>
         </div>

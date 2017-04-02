@@ -1,13 +1,16 @@
 <?php
 session_start();
 if(isset($_SESSION['user'])){
-  if($_SESSION['role'] == "admin"){
-   header("location:homeadmin.php");
- }
- if($_SESSION['role'] == "user"){
-   header("location:halaman_user.php");
- }
-}
+   if($_SESSION['role'] == "admin"){
+     header("location:berita.php");
+   }
+   if($_SESSION['role'] == "user"){
+     header("location:halaman_user.php");
+   }
+   if($_SESSION['role'] == "np"){
+     header("location:halaman_np.php");
+   }
+  }
 require('connection.php');
 ?>
 <!DOCTYPE html>

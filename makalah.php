@@ -4,9 +4,14 @@ if (!isset($_SESSION['user'])){
  echo "<script language=\"javascript\">alert(\"Silahkan Login Terlebih Dahulu\");document.location.href='login.php';</script>";  
 }
 
-if($_SESSION['role'] == "user"){
-  header("location:halaman_user.php");
-}
+if(isset($_SESSION['user'])){
+   if($_SESSION['role'] == "user"){
+     header("location:halaman_user.php");
+   }
+   if($_SESSION['role'] == "np"){
+     header("location:halaman_np.php");
+   }
+  }
 
 IF(ISSET($_SESSION['user'])){
 ?>
@@ -28,7 +33,7 @@ IF(ISSET($_SESSION['user'])){
   <body class="skin-blue-light fixed sidebar-mini ">
     <div class="wrapper">
       <header class="main-header">
-        <a href="index.php" class="logo">
+        <a href="makalah.php" class="logo">
           <span class="logo-lg"><b>Admin</b></span>
         </a>
         <nav class="navbar navbar-static-top" role="navigation">
@@ -38,7 +43,7 @@ IF(ISSET($_SESSION['user'])){
           <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
               <li class="dropdown user user-menu">
-                <a class="dropdown-toggle" data-toggle="dropdown">
+                <a href="makalah.php" class="dropdown-toggle" data-toggle="dropdown">
                   <i class="fa fa-user"></i>
                   <span><?=$_SESSION['user']?></span>
                 </a>
@@ -115,7 +120,7 @@ IF(ISSET($_SESSION['user'])){
           </h1>
         </br>
         <ol class="breadcrumb">
-          <li><a href="index.php"><i class="fa fa-dashboard"></i> Home</a></li>
+          <li><i class="fa fa-home"></i> Home</li>
           <li class="active">Kelola Makalah</li>
         </ol>
         </section>

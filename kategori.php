@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <?php 
 session_start();
+if(isset($_SESSION['user'])){
+   if($_SESSION['role'] == "user"){
+     header("location:halaman_user.php");
+   }
+   if($_SESSION['role'] == "np"){
+     header("location:halaman_np.php");
+   }
+  }
 if(ISSET($_SESSION['user'])){
 ?>
 <html>
@@ -24,7 +32,7 @@ if(ISSET($_SESSION['user'])){
   <div class="wrapper">
     <header class="main-header">
       <!-- Logo -->
-      <a href="berita.php" class="logo">
+      <a href="kategori.php" class="logo">
         <span class="logo-lg"><b>Admin</b></span>
       </a>
       <nav class="navbar navbar-static-top" role="navigation">
@@ -35,7 +43,7 @@ if(ISSET($_SESSION['user'])){
         <div class="navbar-custom-menu">
           <ul class="nav navbar-nav">
             <li class="dropdown user user-menu">
-              <a class="dropdown-toggle" data-toggle="dropdown">
+              <a href="kategori.php" class="dropdown-toggle" data-toggle="dropdown">
                 <i class="fa fa-user"></i>
                 <span><?=$_SESSION['user']?></span>
               </a>
@@ -114,7 +122,7 @@ if(ISSET($_SESSION['user'])){
     </h1>
   </br>
   <ol class="breadcrumb">
-    <li><a href="berita.php"><i class="fa fa-dashboard"></i> Home</a></li>
+    <li><i class="fa fa-home"></i> Home</li>
     <li class="active">Kelola Kategori</li>
   </ol>
 </section>

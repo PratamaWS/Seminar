@@ -6,6 +6,17 @@
   if(isset($_SESSION['alert2'])){
     $alert2 = $_SESSION['alert2'];
   }
+  if(isset($_SESSION['user'])){
+   if($_SESSION['role'] == "admin"){
+     header("location:berita.php");
+   }
+   if($_SESSION['role'] == "user"){
+     header("location:halaman_user.php");
+   }
+   if($_SESSION['role'] == "np"){
+     header("location:halaman_np.php");
+   }
+  }
 ?>
 <html>
 <head>

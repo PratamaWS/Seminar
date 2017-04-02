@@ -7,18 +7,26 @@ if(isset($_SESSION['alert'])){
 if(isset($_SESSION['alert2'])){
     $alert2 = $_SESSION['alert2'];
 }
+if(isset($_SESSION['user'])){
+   if($_SESSION['role'] == "user"){
+     header("location:halaman_user.php");
+   }
+   if($_SESSION['role'] == "admin"){
+     header("location:berita.php");
+   }
+}
 IF(ISSET($_SESSION['user'])){
   ?>
   <html>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Dashboard User</title>
+    <title>Dashboard Non Pemakalah</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    
+    <link rel="shortcut icon" href="dist/img/favicon.ico">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <!-- DataTables -->
     <link rel="stylesheet" href="plugins/datatables/dataTables.bootstrap.css">
@@ -34,7 +42,7 @@ IF(ISSET($_SESSION['user'])){
     <div class="wrapper">
       <header class="main-header">
         <!-- Logo -->
-        <a href="index.php" class="logo">
+        <a href="halaman_np.php" class="logo">
           <span class="logo-lg"><b>Seminar Nasional</b></span>
         </a>
         <nav class="navbar navbar-static-top" role="navigation">
@@ -45,7 +53,7 @@ IF(ISSET($_SESSION['user'])){
           <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
               <li class="dropdown user user-menu">
-                <a class="dropdown-toggle" data-toggle="dropdown">
+                <a href="halaman_np.php" class="dropdown-toggle" data-toggle="dropdown">
                   <i class="fa fa-user"></i>
                   <span><?=$_SESSION['user']?></span> 
                 </a>
@@ -64,7 +72,7 @@ IF(ISSET($_SESSION['user'])){
     </h1>
   </br>
   <ol class="breadcrumb">
-    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+    <li><i class="fa fa-home"></i> Home</li>
     <li class="active">Upload Bukti Pembayaran</li>
   </ol>
 </section>
@@ -99,7 +107,7 @@ IF(ISSET($_SESSION['user'])){
           <div class="form-group">
             <label >Foto Bukti Pembayaran</label>
             <input type="file" name="bayar" required>
-            <p class="help-block">*maksimal ukuran foto 500Kb</p>
+            <p class="help-block">*maksimal ukuran foto 5MB</p>
           </div>
         <div class="box-footer">
           <button type="submit" name="uploadbayar" class="btn btn-primary btn-flat">Submit</button>

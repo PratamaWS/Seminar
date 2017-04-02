@@ -8,7 +8,7 @@ if(isset($_POST["uploadbayar"])){
 	$filetmp = $_FILES["bayar"]['tmp_name'];
 	$filepath = "uploads/bayar/".$file_bayar;	
 	if(move_uploaded_file($filetmp, $filepath)){
-		$sql = "UPDATE $tablename SET file_bayar='$file_bayar', tanggal_bayar = NOW(), status_bayar='Sudah' WHERE username = '$user'";
+		$sql = "UPDATE $tablename SET file_bayar='$file_bayar', tanggal_bayar = NOW(), status_bayar='Belum' WHERE username = '$user'";
 		$query = mysqli_query($conn, $sql);
 		if($query){
 			$_SESSION['alert'] = "File berhasil diupload";

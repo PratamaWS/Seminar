@@ -1,13 +1,16 @@
 <?php
 session_start();
 if(isset($_SESSION['user'])){
-  if($_SESSION['role'] == "admin"){
-   header("location:homeadmin.php");
- }
- if($_SESSION['role'] == "user"){
-   header("location:halaman_user.php");
- }
-}
+   if($_SESSION['role'] == "admin"){
+     header("location:berita.php");
+   }
+   if($_SESSION['role'] == "user"){
+     header("location:halaman_user.php");
+   }
+   if($_SESSION['role'] == "np"){
+     header("location:halaman_np.php");
+   }
+  }
 require('connection.php');
 ?>
 <!DOCTYPE html>
@@ -101,11 +104,11 @@ require('connection.php');
               <th width="20%">Judul</th>
               <th width="20%">Kategori</th>
               <th width="10%">Abstrak</th>
-              <th width="10%">Paper</th>
+              <th width="10%">Makalah</th>
             </tr>
           </thead>
         </table>
-        <h5>*Nb = bagi peserta yang telah mengupload file paper</h5>
+        <h5>*Nb = bagi peserta yang telah mengupload file makalah</h5>
                 </div><!-- /.box -->
                <div class="box-footer clearfix">
             <div class="row">
